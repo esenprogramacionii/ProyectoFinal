@@ -1,6 +1,4 @@
-
 package zepe.proyectofinal.logic;
-
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,6 +6,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import zepe.proyectofinal.database.DatabaseX;
+import zepe.proyectofinal.objects.StockObj;
 
 public class StockLogic extends Logic
 {
@@ -19,26 +18,26 @@ public class StockLogic extends Logic
         DatabaseX CDatabase = getDatabase();
         String strSql = "select * from esentravel.country";
         ResultSet CResult = CDatabase.executeQuery(strSql);
-        ArrayList<CountryObj> CArray = null;
+        ArrayList<StockObj> CArray = null;
         
         //evaluar el result que venga lleno
         if(CResult!=null)
         {
             try 
             {
-                int iId;
-                String strName;
-                String strCode;
-                CountryObj CTemp;
+                int iIproduct;
+                int iIStore;
+                int iQ;
+                StockObj CTemp;
                 CArray = new ArrayList<>();
                 
                 while(CResult.next())
                 {
-                    iId = CResult.getInt("id"); //id
-                    strName = CResult.getString("name"); //name
-                    strCode = CResult.getString("code"); //code
+                    iIproduct = CResult.getInt("product"); //id
+                    iIStore = CResult.getInt("store"); //name
+                    iQ = CResult.getInt("quantity"); //code
                     
-                    CTemp = new CountryObj(iId, strName, strCode);
+                    CTemp = new StockObj(iIproduct, iIStore, iQ);
                     
                     //agregando al array un instancia de countryobj
                     CArray.add(CTemp);
@@ -46,7 +45,7 @@ public class StockLogic extends Logic
             } 
             catch (SQLException ex) 
             {
-                Logger.getLogger(TravelLogic.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(StockLogic.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         
