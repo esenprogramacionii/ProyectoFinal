@@ -26,7 +26,7 @@ public class ProductLogic extends logic
     {
         
         DatabaseX database = getDatabase();
-        String strSql = "INSERT INTO mydb.client(id,pname, brand, description, pyear,price,category) "
+        String strSql = "INSERT INTO mydb.product(id,pname, brand, description, pyear,price,category) "
                 + "VALUES(0,'"+p_strName+"','"+p_strBrand+"','"+p_strDescription+"',"+p_intYear+","+p_dPrice+""
                 + ","+p_iCategory+")";
         System.out.println(strSql);

@@ -8,5 +8,6 @@
     </head>
     <body>
         <h1>Product Form</h1>
+        <a href="NewProduct.html">New Product</a>
     </body>
 </html>

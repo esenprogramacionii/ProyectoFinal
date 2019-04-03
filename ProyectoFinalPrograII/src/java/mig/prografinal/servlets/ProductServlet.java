@@ -24,6 +24,7 @@ public class ProductServlet extends HttpServlet
             /* your code */
             String strFormId = request.getParameter("formid");
             
+            // <editor-fold defaultstate="collapsed" desc="Formid 1">
             if(strFormId.equals("1"))
             {
                 //get parameters
@@ -47,7 +48,7 @@ public class ProductServlet extends HttpServlet
                 //send to frontend
                 request.getSession().setAttribute("rows", iRows);
                 response.sendRedirect("genericMessage.jsp");
-            }
+            }// </editor-fold>
         }
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

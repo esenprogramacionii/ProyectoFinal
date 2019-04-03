@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <html>
     <head>
         <title>Products</title>
@@ -13,12 +9,28 @@ and open the template in the editor.
     <body>
         <h1>Products</h1>
         <form id="myform" name="myform" action="ProductServlet" method="get">
-            <label>Name:</label><br>
+            <label>Model:</label><br>
             <input type="text" id="name" name="name" />
             <br><br>
             
-            <label>Age:</label><br>
-            <input type="number" id="age" name="age" />
+            <label>Brand:</label><br>
+            <input type="text" id="brand" name="brand" />
+            <br><br>
+            
+            <label>Description:</label><br>
+            <input type="text" id="description" name="description" />
+            <br><br>
+            
+            <label>Year:</label><br>
+            <input type="number" id="year" name="year" />
+            <br><br>
+            
+            <label>Price:</label><br>
+            <input type="number" id="price" name="price" />
+            <br><br>
+            
+            <label>Category:</label><br>
+            <input type="text" id="category" name="category " />
             <br><br>
             
             <input type="submit" id="mysubmit" name="mysubmit" value="Create"/>
