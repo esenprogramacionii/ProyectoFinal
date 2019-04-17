@@ -8,6 +8,6 @@
     </head>
     <body>
         <h1>Product Form</h1>
-        <a href="NewProduct.html">New Product</a>
+        <a href="ProductNew.jsp">New Product</a>
     </body>
 </html>

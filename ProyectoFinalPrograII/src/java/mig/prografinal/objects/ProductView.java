@@ -1,8 +1,7 @@
-
 package mig.prografinal.objects;
 
 
-public class ProductObj 
+public class ProductView
 {
 //variables de instancia
     
@@ -12,11 +11,11 @@ public class ProductObj
     private String m_strDescription;
     private int m_intYear;
     private double m_dPrice;
-    private int m_iCategory;
+    private String m_strCategory;
  
     //constructores
-    public ProductObj(int p_iId, String p_strName, String p_strBrand,  int p_iCategory, 
-            String p_strDescription, int p_intYear, double p_dPrice) 
+    public ProductView(int p_iId, String p_strName, String p_strBrand,
+            String p_strCategory, String p_strDescription, int p_intYear, double p_dPrice) 
     {    
         setId(p_iId);
         setBrand(p_strName);
@@ -24,7 +23,7 @@ public class ProductObj
         setDescription(p_strDescription);
         setYear(p_intYear);
         setPrice(p_dPrice);
-        setCategory(p_iCategory);
+        setCategory(p_strCategory);
     }
 
     //getters y setters
@@ -76,12 +75,12 @@ public class ProductObj
         m_dPrice = p_dPrice;
     }
 
-    public int getCategory() {
-        return m_iCategory;
+    public String getCategory() {
+        return m_strCategory;
     }
 
-    private void setCategory(int p_iCategory) {
-        m_iCategory = p_iCategory;
+    private void setCategory(String p_strCategory) {
+        m_strCategory = p_strCategory;
     }
     
     

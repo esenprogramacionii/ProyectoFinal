@@ -3,10 +3,9 @@ package mig.prografinal.logic;
 
 import mig.prografinal.database.DatabaseX;
 
-// la logic es para guardar los datos de la conexion de la databaseX
 public class logic 
 {
-        private DatabaseX m_CDatabase;
+    private DatabaseX m_CDatabase;
 
     public logic() 
     {
@@ -31,5 +30,16 @@ public class logic
             database = new DatabaseX();
         }
         return database;
+    } 
+    
+    public int deleteTableRows(int p_iId,String p_strTableName) 
+    {
+        //delete from travelsys.client where id=0;
+        DatabaseX database = getDatabase();
+        String strSql = "delete from mydb."+p_strTableName+" "
+                + "where id="+p_iId+" ";
+        System.out.println(strSql);
+        int iRows = database.executeNonQueryRows(strSql);
+        return iRows;
     }    
 }
