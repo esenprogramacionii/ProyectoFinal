@@ -106,5 +106,15 @@ public class ProvLOGIC extends Logic
         return CTemp;
         
     }
-    
+     public int updateProvRows(int p_iId, String p_strName)//metodo para actualizar rows
+    {
+        //update travelsys.client set name = 'fabricio',age = 25 where id = 9;
+        DatabaseX database = getDatabase();
+        String strSql = "update mydb.supplier "
+                + "set name = '"+p_strName+"' "
+                + "where id = "+p_iId+" ";
+        System.out.println(strSql);
+        int iRows = database.executeNonQueryRows(strSql);
+        return iRows;
+    }
 }

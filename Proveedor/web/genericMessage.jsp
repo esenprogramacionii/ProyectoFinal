@@ -9,15 +9,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Resumen</title>
     </head>
     <%
         Integer iRows = (Integer)request.getSession().getAttribute("rows");
+        int iRowsObj = iRows.intValue();
     %>
     <body>
-        <h1>Generic Message</h1> <br><br>
+        <h1>Resumen de lo hecho:</h1> 
+        <br><br>
         
-        <p><%= iRows.intValue() %>rows were affected </p>
+        <p><%= iRowsObj %> dato(s) fueron afectados. </p>
         <a href="Proveedores.jsp">Regresar a Proveedores</a>
        
     </body>

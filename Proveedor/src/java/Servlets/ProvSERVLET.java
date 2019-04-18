@@ -70,6 +70,41 @@ public class ProvSERVLET extends HttpServlet {
                 response.sendRedirect("genericMessage.jsp");
             }
             
+             if(strFormid.equals("4"))
+            {
+                //get parameters
+                String strId = request.getParameter("id");
+                int iId = Integer.parseInt(strId);
+                
+                //access logic
+                ProvLOGIC CLogic = new ProvLOGIC();
+                ProvObj CClient = CLogic.getProvById(iId);
+                
+                //send to frontend
+                request.getSession().setAttribute("provs", CClient);
+                response.sendRedirect("ProvUpdateForm.jsp");
+            }   
+            
+            if(strFormid.equals("5"))
+            {
+                //get parameters
+                String strId = request.getParameter("id");
+                String strName = request.getParameter("name");
+               
+                int iId = Integer.parseInt(strId);
+                
+                
+                //access logic
+                ProvLOGIC CLogic = new ProvLOGIC();
+                int iRows = CLogic.updateProvRows(iId,strName);
+                System.out.println("update supplier rows: " + iRows);
+                
+                //send to frontend
+                request.getSession().setAttribute("rows", new Integer(iRows) );
+                response.sendRedirect("genericMessage.jsp");
+                
+            }
+            
         }
     }
 
