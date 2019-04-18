@@ -1,4 +1,7 @@
 
+<%@page import="java.util.Iterator"%>
+<%@page import="mig.prografinal.objects.categoryObj"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -7,9 +10,9 @@
         <title>New Trip</title>
     </head>
     <%
-        ArrayList<CategoryObj> CCategoryArray = 
-                (ArrayList<CategoryObj>)request.getSession().getAttribute("category");
-        Iterator<CategoryObj> iteCategoryArray = CCategoryArray.iterator();
+        ArrayList<categoryObj> CCategoryArray = 
+                (ArrayList<categoryObj>)request.getSession().getAttribute("category");
+        Iterator<categoryObj> iteCategoryArray = CCategoryArray.iterator();
     %>
     
     <body>
@@ -43,13 +46,13 @@
                 <%
                     if(iteCategoryArray!=null)
                     {
-                        CategoryObj CClientTemp;
+                        categoryObj CCategoryTemp;
                         while(iteCategoryArray.hasNext())
                         {
                             CClientTemp = iteCategoryArray.next();
                 %>
                             <option id="category<%= CCategoryTemp.getId() %>" 
-                                    name="categoryt<%= CCategoryTemp.getId() %>" 
+                                    name="category<%= CCategoryTemp.getId() %>" 
                                     value="<%= CCategoryTemp.getId() %>">
                                 <%= CCategoryTemp.getName() %>
                             </option>
