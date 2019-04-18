@@ -109,11 +109,11 @@ public class DetailLogic extends Logic
                 while(CResult.next())
                 {
                     iId = CResult.getInt("id");
-                    strName = CResult.getString("name");
-                    Pid = CResult.getInt("pid");
-                    Pprice = CResult.getString("price");
-                    Quant = CResult.getInt("quantity");
-                    dtotal = CResult.getInt("total");
+                    strName = CResult.getString("product name");
+                    Pid = CResult.getInt("product id");
+                    Pprice = CResult.getString("product price");
+                    Quant = CResult.getInt("order size");
+                    dtotal = CResult.getInt("order total");
                     orderid = CResult.getInt("orderid");
                     
                     CTemp = new DetailViewObj(iId, strName, Pid, Pprice, Quant, dtotal, orderid);
