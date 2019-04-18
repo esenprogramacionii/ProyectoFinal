@@ -55,6 +55,21 @@ public class ProvSERVLET extends HttpServlet {
                 response.sendRedirect("Proveedores.jsp");
                 }
             
+            if(strFormid.equals("3"))
+            {
+                //get parameters
+                String strId = request.getParameter("id");
+                int iId = Integer.parseInt(strId);
+                
+                //access logic
+                ProvLOGIC CLogic = new ProvLOGIC();
+                int iRows = CLogic.deleteProvRows(iId);
+                
+                //send to frontend
+                request.getSession().setAttribute("rows", iRows);
+                response.sendRedirect("genericMessage.jsp");
+            }
+            
         }
     }
 

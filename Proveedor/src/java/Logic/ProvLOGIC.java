@@ -65,4 +65,46 @@ public class ProvLOGIC extends Logic
         
     }
     
+    public int deleteProvRows(int p_iId) //metodo para borrar provs 
+    {
+        int iRows = deleteTableRows(p_iId, "supplier");
+        return iRows;
+    }
+
+    public ProvObj getProvById(int p_iId) //Seleccionan un cliente usando una condicion 
+    {
+        //select * from travelsys.client;
+        DatabaseX database = getDatabase();
+        String strSql = "select * from mydb.supplier where id="+p_iId+" ";
+        System.out.println(strSql);
+        ResultSet CResult = database.executeQuery(strSql);
+        ProvObj CTemp = null;
+        
+        if(CResult!=null)
+        {
+            int iId;
+            String strName;
+            
+            
+            try 
+            {
+                while(CResult.next())
+                {
+                    iId = CResult.getInt("id");
+                    strName = CResult.getString("name");
+                    
+                    
+                    CTemp = new ProvObj(iId, strName);
+                }
+            } 
+            catch (SQLException ex) 
+            {
+                Logger.getLogger(ProvLOGIC.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        return CTemp;
+        
+    }
+    
 }
