@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import mig.prografinal.logic.ProductLogic;
+import mig.prografinal.logic.categoryLogic;
 import mig.prografinal.objects.ProductObj;
 import mig.prografinal.objects.ProductView;
+import mig.prografinal.objects.categoryObj;
 
 @WebServlet(name = "ProductServlet", urlPatterns = {"/ProductServlet"})
 public class ProductServlet extends HttpServlet 
@@ -118,16 +120,16 @@ public class ProductServlet extends HttpServlet
                 response.sendRedirect("genericMessage.jsp");
             }            
             
-            /*if(strFormId.equals("6"))
+            if(strFormId.equals("6"))
             {
                 //load all dropdowns
-                CategoryLogic CCategoryLogic = new CategoryLogic();
-                ArrayList<CategoryObj> CCategryArray = CCategorytLogic.getAllClients();
+                categoryLogic CCategoryLogic = new categoryLogic();
+                ArrayList<categoryObj> CCategoryArray = CCategoryLogic.getAllCategories();
                 
-                request.getSession().setAttribute("category", CCategoryArray);
+                request.getSession().setAttribute("categories", CCategoryArray);
                 
                 response.sendRedirect("ProductNew.jsp");
-            }       */     
+            }            
         }
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

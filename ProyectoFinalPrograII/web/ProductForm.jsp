@@ -11,7 +11,7 @@
     </head>
     <%
         ArrayList<ProductView> CArray = 
-                (ArrayList<ProductView>)request.getSession().getAttribute("tripsview");
+                (ArrayList<ProductView>)request.getSession().getAttribute("productcatview");
         Iterator<ProductView> iteArray = CArray.iterator();
     %>    
     <body>
@@ -46,12 +46,12 @@
                     <td><%= CTemp.getYear() %></td>
                     <td><%= CTemp.getPrice() %></td>
                     <td>
-                        <a href="TripServlet?formid=4&id=<%= CTemp.getId() %>">
+                        <a href="ProductServlet?formid=4&id=<%= CTemp.getId() %>">
                             update
                         </a>
                     </td>
                     <td>
-                        <a href="TripServlet?formid=3&id=<%= CTemp.getId() %>">
+                        <a href="ProductServlet?formid=3&id=<%= CTemp.getId() %>">
                             delete
                         </a>
                     </td>
