@@ -13,7 +13,7 @@ public class DatabaseX
 { 
     // creando las variables de la clase, conector para la base de datos
     private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/sakila"
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/mydb"
                 + "?autoReconnect=true"
                 + "&useUnicode=true"
                 + "&useSSL=false"
@@ -21,7 +21,7 @@ public class DatabaseX
                 + "&useLegacyDatetimeCode=false"
                 + "&serverTimezone=UTC";
     private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "12345";
+    private static final String DB_PASSWORD = "clayre";
     
     //para hacer la conexion
     private Connection m_CConnection;
