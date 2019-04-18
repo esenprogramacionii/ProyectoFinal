@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" 
@@ -13,14 +14,14 @@
         <title>JSP Page</title>
     </head>
     <%
-        int iRows = (int)request.getSession().getAttribute("rows");
-        
+        Integer iRowsObj = (Integer)request.getSession().getAttribute("rows");
+        int iRows = iRowsObj.intValue();
     %>
     <body>
         <h1>Generic Message</h1>
         <br><br>
         <p><%= iRows %> rows where affected</p>
         <br><br>
-        <a href="ProductServlet?formid=2">Home</a>
+        <a href="index.html">Home</a>
     </body>
 </html>

@@ -95,6 +95,27 @@ public class ProductServlet extends HttpServlet
             
             if(strFormId.equals("5"))
             {
+                //get parameters
+                String strId = request.getParameter("id");
+                String strName = request.getParameter("name");
+                String strBrand = request.getParameter("brand");
+                String strCategory = request.getParameter("category");
+                String strDescription = request.getParameter("description");
+                String strYear = request.getParameter("year");
+                String strPrice = request.getParameter("price");
+                int iId = Integer.parseInt(strId);
+                int iCategory = Integer.parseInt(strCategory);
+                int intYear = Integer.parseInt(strYear);
+                double dPrice = Double.parseDouble(strPrice);
+                
+                //access logic
+                ProductLogic CLogic = new ProductLogic();
+                int iRows = CLogic.updateProductRows(iId,strName, strBrand, iCategory, strDescription, intYear, dPrice);
+                System.out.println("update product rows: " + iRows);
+                
+                //send to frontend
+                request.getSession().setAttribute("rows", new Integer(iRows) );
+                response.sendRedirect("genericMessage.jsp");
             }            
             
             if(strFormId.equals("6"))

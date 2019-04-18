@@ -125,4 +125,18 @@ public class ProductLogic extends logic
         
     }
     
+     public int updateProductRows(int p_iId, String p_strName, String p_strBrand, int p_iCategory,  String p_strDescription,
+             int p_intYear, double p_dPrice) 
+    {
+        //update travelsys.client set name = 'fabricio',age = 25 where id = 9;
+        DatabaseX database = getDatabase();
+        String strSql = "update travelsys.client "
+                + "set name = '"+p_strName+"', brand = '"+p_strBrand+"', categry = "+p_iCategory+", description = '"+p_strDescription+"',"
+                + "year = "+p_intYear+", price = "+p_dPrice+" "
+                + "where id = "+p_iId+" ";
+        System.out.println(strSql);
+        int iRows = database.executeNonQueryRows(strSql);
+        return iRows;
+    }
+    
 }
