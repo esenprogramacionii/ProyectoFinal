@@ -1,39 +1,44 @@
+
 package zepe.proyectofinal.objects;
 
 public class StockObj 
 {
-    private int m_iId;
-    private int m_iIdStore;
-    private int m_iStock;
+    private int m_Iid;
+    private int m_ISid;
+    private int m_IStock;
 
-    public StockObj(int p_iId, int p_iIdStore, int p_iStock) {
-        setId(p_iId);
-        setIdStore(p_iIdStore);
-        setStock(p_iStock);
+    public StockObj(int p_Iid, int p_ISid, int p_IStock) {
+        setid(p_Iid);
+        setSid(p_ISid);
+        setStock(p_IStock);
     }
 
-    public int getId() {
-        return m_iId;
+    
+    
+    
+    
+    public int getid() {
+        return m_Iid;
     }
 
-    private void setId(int p_iId) {
-        m_iId = p_iId;
+    private void setid(int p_Iid) {
+        m_Iid = p_Iid;
     }
 
-    public int getIdStore() {
-        return m_iIdStore;
+    public int getSid() {
+        return m_ISid;
     }
 
-    private void setIdStore(int p_iIdStore) {
-        m_iIdStore = p_iIdStore;
+    private void setSid(int p_ISid) {
+        m_ISid = p_ISid;
     }
 
     public int getStock() {
-        return m_iStock;
+        return m_IStock;
     }
 
-    private void setStock(int p_iStock) {
-        m_iStock = p_iStock;
+    private void setStock(int p_IStock) {
+        m_IStock = p_IStock;
     }
     
     

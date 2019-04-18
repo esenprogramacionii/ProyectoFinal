@@ -1,45 +1,44 @@
+
 package zepe.proyectofinal.logic;
 
+import zepe.proyectofinal.database.DatabaseX;
+import zepe.proyectofinal.objects.StockObj;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import zepe.proyectofinal.database.DatabaseX;
-import zepe.proyectofinal.objects.StockObj;
 
 public class StockLogic extends Logic
-{
-    //metodo1: todos los registros country columnas
-    //sql: select * from esentravel.country
-    public ArrayList<StockObj> getAllCountries()
+    
     {
-        //codificar el metodo
-        DatabaseX CDatabase = getDatabase();
-        String strSql = "select * from esentravel.country";
-        ResultSet CResult = CDatabase.executeQuery(strSql);
+ 
+    public ArrayList<StockObj> getAllStock() //Nombre del método
+    {
+        DatabaseX database = getDatabase();
+        String strSql = "select * from mydb.stock ";
+        System.out.println(strSql);
+        ResultSet CResult = database.executeQuery(strSql);
         ArrayList<StockObj> CArray = null;
         
-        //evaluar el result que venga lleno
         if(CResult!=null)
         {
+            int iId;
+            int iStore;
+            int iStock;
+            
+            StockObj CTemp;
+            CArray = new ArrayList<>();
+            
             try 
             {
-                int iIproduct;
-                int iIStore;
-                int iQ;
-                StockObj CTemp;
-                CArray = new ArrayList<>();
-                
                 while(CResult.next())
                 {
-                    iIproduct = CResult.getInt("product"); //id
-                    iIStore = CResult.getInt("store"); //name
-                    iQ = CResult.getInt("quantity"); //code
+                    iId = CResult.getInt("product");
+                    iStore = CResult.getInt("store");
+                    iStock = CResult.getInt("quantity");
                     
-                    CTemp = new StockObj(iIproduct, iIStore, iQ);
-                    
-                    //agregando al array un instancia de countryobj
+                    CTemp = new StockObj(iId, iStore, iStock);
                     CArray.add(CTemp);
                 }
             } 
@@ -50,5 +49,6 @@ public class StockLogic extends Logic
         }
         
         return CArray;
+        
     }
 }
