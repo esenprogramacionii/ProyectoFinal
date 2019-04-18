@@ -97,7 +97,7 @@ public class ProductServlet extends HttpServlet
             {
             }            
             
-            if(strFormId.equals("6"))
+            /*if(strFormId.equals("6"))
             {
                 //load all dropdowns
                 CategoryLogic CCategoryLogic = new CategoryLogic();
@@ -106,7 +106,7 @@ public class ProductServlet extends HttpServlet
                 request.getSession().setAttribute("category", CCategoryArray);
                 
                 response.sendRedirect("ProductNew.jsp");
-            }            
+            }       */     
         }
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
