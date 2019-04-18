@@ -2,8 +2,10 @@
 package Servlets;
 
 import Logic.ProvLOGIC;
+import Objects.ProvObj;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,6 +39,20 @@ public class ProvSERVLET extends HttpServlet {
                     request.getSession().setAttribute("rows", new Integer(iRows));
                     response.sendRedirect("genericMessage.jsp");
                     
+                }
+             
+            
+            if (strFormid.equals("2"))
+                {
+                 //access logic
+                ProvLOGIC CLogic = new ProvLOGIC();
+                ArrayList<ProvObj> CArray = CLogic.getAllProv();
+                
+               
+                
+                //send to frontend
+                request.getSession().setAttribute("provs", CArray);
+                response.sendRedirect("Proveedores.jsp");
                 }
             
         }
