@@ -21,7 +21,8 @@
         <br><br>
         <p><%= iRows %> rows where affected.</p>
         <br>
-
+        <a href="genericMessageORD.jsp">Solicitar más productos al proveedor</a>
+        <br><br>
         <a href="index.html">Back Home</a>
     </body>
 </html>
