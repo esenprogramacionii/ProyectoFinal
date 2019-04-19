@@ -42,9 +42,11 @@ public class DetailServlet extends HttpServlet {
                 int iRows = CLogic.insertdetailRows(id, product,Quant,order);
                 System.out.println("insert client rows: " + iRows);
                 
-                //send to frontend
+                //send to frontend, puedo enviar más de un atributo en la session
                 request.getSession().setAttribute("rows", new Integer(iRows) );
-                response.sendRedirect("genericMessage.jsp");
+                request.getSession().setAttribute("product", product );
+                request.getSession().setAttribute("stock", Quant );
+                response.sendRedirect("genericMessage2.jsp");
             }
            
              if(strFormId.equals("2")) //Obtener todos los campos de la tabla orderdetail

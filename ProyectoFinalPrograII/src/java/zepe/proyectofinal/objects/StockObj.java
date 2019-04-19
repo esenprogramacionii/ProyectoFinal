@@ -3,34 +3,40 @@ package zepe.proyectofinal.objects;
 
 public class StockObj 
 {
-    private int m_Iid;
-    private int m_ISid;
+    private int m_trans;
+    private int m_IP;
+    private int m_IStore;
     private int m_IStock;
 
-    public StockObj(int p_Iid, int p_ISid, int p_IStock) {
-        setid(p_Iid);
-        setSid(p_ISid);
+    public StockObj(int p_trans, int p_IP, int p_IStore, int p_IStock) {
+        settrans(p_trans);
+        setIP(p_IP);
+        setStore(p_IStore);
         setStock(p_IStock);
     }
-
     
-    
-    
-    
-    public int getid() {
-        return m_Iid;
+    public int gettrans() {
+        return m_trans;
     }
 
-    private void setid(int p_Iid) {
-        m_Iid = p_Iid;
+    private void settrans(int p_trans) {
+        m_trans = p_trans;
     }
 
-    public int getSid() {
-        return m_ISid;
+    public int getIP() {
+        return m_IP;
     }
 
-    private void setSid(int p_ISid) {
-        m_ISid = p_ISid;
+    private void setIP(int p_IP) {
+        m_IP = p_IP;
+    }
+
+    public int getStore() {
+        return m_IStore;
+    }
+
+    private void setStore(int p_IStore) {
+        m_IStore = p_IStore;
     }
 
     public int getStock() {
@@ -39,8 +45,7 @@ public class StockObj
 
     private void setStock(int p_IStock) {
         m_IStock = p_IStock;
+    
+    
     }
-    
-    
-    
 }

@@ -17,11 +17,10 @@
         int iRows = iRowsObj.intValue();
     %>
     <body>
-        <h1>Primera parte de la orden completada</h1>
         <br><br>
         <p><%= iRows %> rows where affected.</p>
-        <br>
-        <a href="genericMessageORD.jsp">Solicitar más productos al proveedor</a>
+        <br><br>
+        <a href="genericMessageORD.jsp">Order more product to the same supplier</a>
         <br><br>
         <a href="index.html">Back Home</a>
     </body>

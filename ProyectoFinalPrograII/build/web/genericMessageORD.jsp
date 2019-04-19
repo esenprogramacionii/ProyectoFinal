@@ -21,7 +21,7 @@
     <body >
         <h1>Primera parte de la orden completada: ORDEN <%= OrderId %></h1>
         <br><br>
-        <p><%= iRows %> rows where affected. First part of the order completed. Now detail the order</p>
+        <p><%= iRows %> rows where affected. First part of the order completed. Now detail more the order</p>
         <br>
         
         <h2>Order Details</h2>

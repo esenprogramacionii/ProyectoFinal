@@ -2,7 +2,7 @@
 package zepe.proyectofinal.servlets;
 
 import zepe.proyectofinal.logic.StockLogic;
-import zepe.proyectofinal.objects.StockObj;
+import zepe.proyectofinal.objects.StockViewObj;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -23,11 +23,23 @@ public class StockServlet extends HttpServlet {
         {
             String strFormId = request.getParameter("formid"); //Pedir el Id correspodiente a acción a ejecutar
             
+            /*if(strFormId.equals("1")) //Obtener todos los campos de una tabla
+            {
+                //access logic
+                StockLogic CLogic = new StockLogic();
+                ArrayList<StockViewObj> CArray = CLogic.getStock();
+                
+                
+                //send to frontend
+               // request.getSession().setAttribute("stock", CArray);
+                response.sendRedirect("stockForm.jsp");
+            }*/
+            
               if(strFormId.equals("2")) //Obtener todos los campos de una tabla
             {
                 //access logic
                 StockLogic CLogic = new StockLogic();
-                ArrayList<StockObj> CArray = CLogic.getAllStock();
+                ArrayList<StockViewObj> CArray = CLogic.getInventory();
                 
                 
                 //send to frontend
@@ -35,8 +47,28 @@ public class StockServlet extends HttpServlet {
                 response.sendRedirect("stockForm.jsp");
             }
             
-            
-          
+            if(strFormId.equals("3"))
+            {
+                //get parameters
+                String Id = request.getParameter("transaction");
+                String strprod = request.getParameter("product");
+                String strQ = request.getParameter("quantity");
+                String Store = request.getParameter("store");
+
+                int id = Integer.parseInt(Id);
+                int product = Integer.parseInt(strprod);
+                int Quant = Integer.parseInt(strQ);
+                int order = Integer.parseInt(Store);
+                
+                //access logic
+                StockLogic CLogic = new StockLogic();
+                int iRows = CLogic.insertStockRows(id, product,Quant,order);
+                System.out.println("insert client rows: " + iRows);
+                
+                //send to frontend, puedo enviar más de un atributo en la session
+                request.getSession().setAttribute("rows", new Integer(iRows) );
+                response.sendRedirect("genericMessage1.jsp");
+            }
             
             
             
