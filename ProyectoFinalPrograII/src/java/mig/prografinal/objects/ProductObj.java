@@ -15,8 +15,8 @@ public class ProductObj
     private int m_iCategory;
  
     //constructores
-    public ProductObj(int p_iId, String p_strName, String p_strBrand,  int p_iCategory, 
-            String p_strDescription, int p_intYear, double p_dPrice) 
+    public ProductObj(int p_iId, String p_strName, String p_strBrand,  
+            String p_strDescription, int p_intYear, double p_dPrice, int p_iCategory) 
     {    
         setId(p_iId);
         setBrand(p_strName);

@@ -8,22 +8,24 @@ public class ProductView
     private int m_iId;
     private String m_strName;
     private String m_strBrand;
+    private String m_strCategory;
     private String m_strDescription;
     private int m_intYear;
     private double m_dPrice;
-    private String m_strCategory;
+    
  
     //constructores
     public ProductView(int p_iId, String p_strName, String p_strBrand,
             String p_strCategory, String p_strDescription, int p_intYear, double p_dPrice) 
     {    
         setId(p_iId);
-        setBrand(p_strName);
+        setName(p_strName);
         setBrand(p_strBrand);
+        setCategory(p_strCategory);
         setDescription(p_strDescription);
         setYear(p_intYear);
         setPrice(p_dPrice);
-        setCategory(p_strCategory);
+       
     }
 
     //getters y setters
@@ -39,7 +41,7 @@ public class ProductView
         return m_strName;
     }
 
-    public void setName(String p_strName) {
+    private void setName(String p_strName) {
         m_strName = p_strName;
     }
 

@@ -22,7 +22,7 @@
         <table>
         <tr>
             <th>Id</th>
-            <th>Name</th>
+            <th>Product</th>
             <th>Brand</th>
             <th>Category</th>
             <th>Description</th>

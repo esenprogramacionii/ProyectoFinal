@@ -31,12 +31,12 @@ public class ProductServlet extends HttpServlet
             if(strFormId.equals("1"))
             {
                 //get parameters
-                String strName = request.getParameter("Name");
-                String strBrand = request.getParameter("Brand");
-                String strCategory = request.getParameter("Category");
-                String strDescription = request.getParameter("Description");
-                String strYear = request.getParameter("Year");
-                String strPrice = request.getParameter("Price");
+                String strName = request.getParameter("pname");
+                String strBrand = request.getParameter("brand");
+                String strDescription = request.getParameter("description");
+                String strYear = request.getParameter("pyear");
+                String strPrice = request.getParameter("price");
+                String strCategory = request.getParameter("category");
                 
                 
                 int iCategory = Integer.parseInt(strCategory);
@@ -46,7 +46,7 @@ public class ProductServlet extends HttpServlet
                 
                 //access logic
                 ProductLogic CLogic = new ProductLogic();
-                int iRows = CLogic.insertProductRows(strName, strBrand, iCategory, strDescription, intYear, dPrice);
+                int iRows = CLogic.insertProductRows(strName, strBrand, strDescription, intYear, dPrice, iCategory);
                 System.out.println("insert product rows: " + iRows);
                                 
                 //send to frontend

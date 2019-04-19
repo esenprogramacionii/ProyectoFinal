@@ -54,7 +54,8 @@
                             <option id="category<%= CCategoryTemp.getId() %>" 
                                     name="category<%= CCategoryTemp.getId() %>" 
                                     value="<%= CCategoryTemp.getId() %>">
-                                <%= CCategoryTemp.getName() %>
+                                
+                              <%= CCategoryTemp.getId()%> - <%= CCategoryTemp.getName() %>
                             </option>
                 <%
                         }

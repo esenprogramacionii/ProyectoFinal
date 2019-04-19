@@ -40,13 +40,13 @@ public class ProductLogic extends logic
             {
                 while(CResult.next())
                 {
-                    iId = CResult.getInt("id");
-                    strName = CResult.getString("pname");
-                    strBrand = CResult.getString("brand");
-                    strCategory = CResult.getString("category");
-                    strDescription = CResult.getString("description");
-                    intYear = CResult.getInt("pyear");
-                    dPrice = CResult.getDouble("price");
+                    iId = CResult.getInt("ID");
+                    strName = CResult.getString("Product");
+                    strBrand = CResult.getString("Brand");
+                    strCategory = CResult.getString("Category");
+                    strDescription = CResult.getString("Description");
+                    intYear = CResult.getInt("Year");
+                    dPrice = CResult.getDouble("Price");
                     
                     CTemp = new ProductView(iId, strName, strBrand, strCategory, strDescription, intYear, dPrice);
                     CArray.add(CTemp);
@@ -61,15 +61,15 @@ public class ProductLogic extends logic
         return CArray;
     }
 
-    public int insertProductRows(String p_strName, String p_strBrand, int p_iCategory,
-            String p_strDescription,int p_intYear, double p_dPrice) 
+    public int insertProductRows(String p_strName, String p_strBrand,
+            String p_strDescription,int p_intYear, double p_dPrice, int p_iCategory) 
     {
         //
         DatabaseX database = getDatabase();
         String strSql = "INSERT INTO mydb.product"
-                + "(id,strName,strBrand, iCategory,strDescription, intYear, dPrice) "
-                + "VALUES(0,"+p_strName+","+p_strBrand+","+p_iCategory+","
-                + ""+p_strDescription+","+p_intYear+","+p_dPrice+");";
+                + "(id,strName,strBrand,strDescription, intYear, dPrice,iCategory) "
+                + "VALUES(0,"+p_strName+","+p_strBrand+","
+                + ""+p_strDescription+","+p_intYear+","+p_dPrice+","+p_iCategory+");";
         System.out.println(strSql);
         int iRows = database.executeNonQueryRows(strSql);
         return iRows;
@@ -77,7 +77,7 @@ public class ProductLogic extends logic
     
      public int deleteProductRows(int p_iId) 
     {
-        int iRows = deleteTableRows(p_iId, "client");
+        int iRows = deleteTableRows(p_iId, "pname");
         return iRows;
     }
      
@@ -112,7 +112,7 @@ public class ProductLogic extends logic
                     intYear = CResult.getInt("pyear");
                     dPrice = CResult.getDouble("price");
                     
-                    CTemp = new ProductObj(iId, strName, strBrand, iCategory, strDescription, intYear, dPrice);
+                    CTemp = new ProductObj(iId, strName, strBrand, strDescription, intYear, dPrice, iCategory);
                 }
             } 
             catch (SQLException ex) 
