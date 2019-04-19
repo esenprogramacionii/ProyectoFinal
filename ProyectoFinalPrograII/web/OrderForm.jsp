@@ -48,6 +48,6 @@
        
         </table>
         <br><br>
-        <a href="DetailServlet?formid=2">See more details</a>
+        <a href="DetailServlet?formid=2">See more details about the orders</a>
     </body>
 </html>

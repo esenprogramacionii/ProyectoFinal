@@ -86,7 +86,7 @@ public class DetailLogic extends Logic
     {
         //select * from travelsys.trip;
         DatabaseX database = getDatabase();
-        String strSql = "select * from mydb.ordetail1 ";  
+        String strSql = "select * from mydb.detail ";  
         System.out.println(strSql);
         ResultSet CResult = database.executeQuery(strSql);
         ArrayList<DetailViewObj> CArray = null;
@@ -96,7 +96,7 @@ public class DetailLogic extends Logic
             int iId;
             String strName;
             int Pid;
-            String Pprice;
+            int Pprice;
             int Quant;
             float dtotal;
             int orderid;
@@ -108,12 +108,12 @@ public class DetailLogic extends Logic
             {
                 while(CResult.next())
                 {
-                    iId = CResult.getInt("id");
+                    iId = CResult.getInt("detail id");
                     strName = CResult.getString("product name");
                     Pid = CResult.getInt("product id");
-                    Pprice = CResult.getString("product price");
+                    Pprice = CResult.getInt("product price");
                     Quant = CResult.getInt("order size");
-                    dtotal = CResult.getInt("order total");
+                    dtotal = CResult.getInt("ordertotal");
                     orderid = CResult.getInt("orderid");
                     
                     CTemp = new DetailViewObj(iId, strName, Pid, Pprice, Quant, dtotal, orderid);
