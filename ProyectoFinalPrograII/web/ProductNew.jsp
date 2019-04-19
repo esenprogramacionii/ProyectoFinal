@@ -49,7 +49,7 @@
                         categoryObj CCategoryTemp;
                         while(iteCategoryArray.hasNext())
                         {
-                            CClientTemp = iteCategoryArray.next();
+                            CCategoryTemp = iteCategoryArray.next();
                 %>
                             <option id="category<%= CCategoryTemp.getId() %>" 
                                     name="category<%= CCategoryTemp.getId() %>" 

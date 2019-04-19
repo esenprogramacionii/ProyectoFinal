@@ -126,7 +126,7 @@ public class ProductServlet extends HttpServlet
                 categoryLogic CCategoryLogic = new categoryLogic();
                 ArrayList<categoryObj> CCategoryArray = CCategoryLogic.getAllCategories();
                 
-                request.getSession().setAttribute("categories", CCategoryArray);
+                request.getSession().setAttribute("category", CCategoryArray);
                 
                 response.sendRedirect("ProductNew.jsp");
             }            
