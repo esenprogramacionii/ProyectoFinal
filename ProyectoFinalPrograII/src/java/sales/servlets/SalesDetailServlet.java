@@ -49,13 +49,13 @@ public class SalesDetailServlet extends HttpServlet {
              
                    if(strFormId.equals("2"))
             {
-                //get parameters
-                String Id = request.getParameter("salesd");
+                //METODO PARA QUITAR ELEMENTOS DE LA TABLA STOCK
                 String strprod = request.getParameter("prod");
                 String strQ = request.getParameter("quant");
                 String Store = request.getParameter("Sstore");
 
-                int Id = Integer.parseInt(Id);
+                //ESTO ES PARA INSERTAR A LA TABLA STOCK 
+                /*int Id = Integer.parseInt(Id);
                 int prod = Integer.parseInt(strprod);
                 int Quant = Integer.parseInt(strQ);
                 int store = Integer.parseInt(Store);
@@ -66,7 +66,7 @@ public class SalesDetailServlet extends HttpServlet {
                 
                 //send to frontend, puedo enviar más de un atributo en la session
                 request.getSession().setAttribute("rows", new Integer(iRows) );
-                response.sendRedirect("genericMessage1.jsp");
+                response.sendRedirect("genericMessage1.jsp");*/
             }
 
             
