@@ -1,5 +1,6 @@
+<%@page import="zepe.proyectofinal.objects.BStoreObj"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="zepe.proyectofinal.objects.StockViewObj"%>
+<%@page import="zepe.proyectofinal.objects.FinalObj"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,31 +12,34 @@
         <link href="styles/tableStyles.css" rel="stylesheet" type="text/css"/>
     </head>
     <%
-        ArrayList<StockViewObj> CArray = 
-                (ArrayList<StockViewObj>)request.getSession().getAttribute("stock");
-        Iterator<StockViewObj> iteArray = CArray.iterator();
+        ArrayList<FinalObj> CArray = 
+                (ArrayList<FinalObj>)request.getSession().getAttribute("stock");
+        Iterator<FinalObj> iteArray = CArray.iterator();
+        
+        ArrayList<BStoreObj> BArray = 
+                (ArrayList<BStoreObj>)request.getSession().getAttribute("stock1");
+        Iterator<BStoreObj> itArray = BArray.iterator();
+
     %>
     <body>
-        <h1>Availability of products</h1>
+        <h1>Total Availability of products</h1>
         <table>
         <tr>
-            <th>Transaction #</th>
             <th>Product Name</th>
-            <th>Store Name</th>
-            <th>Stock</th>
+            <th>Product ID</th>
+            <th>Total Stock</th>
         </tr>
         <%
             if(iteArray!=null)
             {
-                StockViewObj CTemp;
+                FinalObj CTemp;
                 while(iteArray.hasNext())
                 {
                     CTemp = iteArray.next();
         %>
                 <tr>
-                    <td><%= CTemp.getTrans() %></td>
-                    <td><%= CTemp.getprod() %></td>
-                    <td><%= CTemp.getstore() %></td>
+                    <td><%= CTemp.getProd() %></td>
+                    <td><%= CTemp.getProdID() %></td>
                     <td><%= CTemp.getStock() %></td>
                 </tr>
         <%
@@ -44,5 +48,33 @@
         %>
         
         </table>
+        
+        <h2>Availability of products by Store</h2>
+        <table>
+        <tr>
+            <th>Product Name</th>
+            <th>Store Name</th>
+            <th>Stock</th>
+        </tr>
+        <%
+            if(itArray!=null)
+            {
+                BStoreObj BTemp;
+                while(itArray.hasNext())
+                {
+                    BTemp = itArray.next();
+        %>
+                <tr>
+                    <td><%= BTemp.getName() %></td>
+                    <td><%= BTemp.getSName() %></td>
+                    <td><%= BTemp.getSstock() %></td>
+                </tr>
+        <%
+                }
+            }
+        %>
+        
+        </table>
+
     </body>
 </html>

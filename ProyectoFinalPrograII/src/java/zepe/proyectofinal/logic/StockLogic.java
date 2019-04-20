@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import zepe.proyectofinal.objects.BStoreObj;
+import zepe.proyectofinal.objects.FinalObj;
 import zepe.proyectofinal.objects.StockObj;
 
 public class StockLogic extends Logic
@@ -117,4 +119,87 @@ public class StockLogic extends Logic
         return CArray;
         
     }
+    
+    //METODO
+    public ArrayList<FinalObj> getTotal() //Nombre del método
+    {
+        DatabaseX database = getDatabase();
+        String strSql = "select * from mydb.final ";
+        System.out.println(strSql);
+        ResultSet CResult = database.executeQuery(strSql);
+        ArrayList<FinalObj> CArray = null;
+        
+        if(CResult!=null)
+            
+        {
+            String PName;
+            int PId;
+            int Stock;
+            
+            FinalObj CTemp;
+            CArray = new ArrayList<>();
+            
+            try 
+            {
+                while(CResult.next())
+                {
+                    PName = CResult.getString("ProductName");
+                    PId = CResult.getInt("ProductID");
+                    Stock = CResult.getInt("Stock");
+                    
+                    CTemp = new FinalObj(PName, PId,Stock);
+                    CArray.add(CTemp);
+                }
+            } 
+            catch (SQLException ex) 
+            {
+                Logger.getLogger(StockLogic.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        return CArray;
+
+    }
+    
+    //METODO PARA OBTENER STOCK POR TIENDAS 
+    public ArrayList<BStoreObj> getBStore() 
+    {
+        DatabaseX database = getDatabase();
+        String strSql = "select * from mydb.bystore ";
+        System.out.println(strSql);
+        ResultSet BResult = database.executeQuery(strSql);
+        ArrayList<BStoreObj> BArray = null;
+        
+        if(BResult!=null)
+            
+        {
+            String BName;
+            String BStore;
+            int BStock;
+            
+            BStoreObj BTemp;
+            BArray = new ArrayList<>();
+            
+            try 
+            {
+                while(BResult.next())
+                {
+                    BName = BResult.getString("Product Name");
+                    BStore = BResult.getString("Store Name");
+                    BStock = BResult.getInt("Stock");
+                    
+                    BTemp = new BStoreObj(BName, BStore, BStock);
+                    BArray.add(BTemp);
+                }
+            } 
+            catch (SQLException ex) 
+            {
+                Logger.getLogger(StockLogic.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        return BArray;
+
+    }
+    
 }

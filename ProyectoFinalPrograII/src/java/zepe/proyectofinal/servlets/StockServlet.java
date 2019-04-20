@@ -11,6 +11,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import zepe.proyectofinal.objects.BStoreObj;
+import zepe.proyectofinal.objects.FinalObj;
 
 
 @WebServlet(name = "StockServlet", urlPatterns = {"/StockServlet"})
@@ -39,10 +41,15 @@ public class StockServlet extends HttpServlet {
             {
                 //access logic
                 StockLogic CLogic = new StockLogic();
-                ArrayList<StockViewObj> CArray = CLogic.getInventory();
+                ArrayList<FinalObj> CArray = CLogic.getTotal();
+                
+                StockLogic BLogic = new StockLogic();
+                ArrayList<BStoreObj> BArray = BLogic. getBStore();
                 
                 //send to frontend
                 request.getSession().setAttribute("stock", CArray);
+                request.getSession().setAttribute("stock1", BArray);
+                
                 response.sendRedirect("stockForm.jsp");
             }
             
