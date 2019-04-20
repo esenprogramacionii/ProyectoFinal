@@ -77,7 +77,7 @@ public class ProductLogic extends logic
     
      public int deleteProductRows(int p_iId) 
     {
-        int iRows = deleteTableRows(p_iId, "name");
+        int iRows = deleteTableRows(p_iId, "product");
         return iRows;
     }
      

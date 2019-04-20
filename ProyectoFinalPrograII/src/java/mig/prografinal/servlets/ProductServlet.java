@@ -68,7 +68,7 @@ public class ProductServlet extends HttpServlet
             if(strFormId.equals("3"))
             {
                 //get parameters
-                String strId = request.getParameter("Id");
+                String strId = request.getParameter("id");
                 int iId = Integer.parseInt(strId);
                 
                 //access logic

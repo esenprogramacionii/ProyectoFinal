@@ -11,15 +11,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Update Product</title>
     </head>
-    <%
-        ArrayList<categoryObj> CCategoryArray = 
-                (ArrayList<categoryObj>)request.getSession().getAttribute("category");
-        Iterator<categoryObj> iteCategoryArray = CCategoryArray.iterator();
-    %>
+  
     <%
         ProductObj CProduct = 
                 (ProductObj)request.getSession().getAttribute("product");
     %>
+   
+    
     <body>
         <h1>Update Product</h1>
         
@@ -47,31 +45,13 @@
             <label>Price:</label><br>
             <input type="number" id="price" name="price" value="<%= CProduct.getPrice()%>" />
             <br><br>
-           
-
-            <label>Category:</label><br>
-            <select id="category" name="category">
-                <option id="category0" name="category0" value="0"></option>                
-                <%
-                    if(iteCategoryArray!=null)
-                    {
-                        categoryObj CCategoryTemp;
-                        while(iteCategoryArray.hasNext())
-                        {
-                            CCategoryTemp = iteCategoryArray.next();
-                %>
-                            <option id="category<%= CCategoryTemp.getId() %>" 
-                                    name="category<%= CCategoryTemp.getId() %>" 
-                                    value="<%= CCategoryTemp.getId() %>">
-                                
-                              <%= CCategoryTemp.getId()%> - <%= CCategoryTemp.getName() %>
-                            </option>
-                <%
-                        }
-                    }
-                %>
-            </select>
             
+            <label>Category</label><br>
+            <input id="category" name="category" value="<%= CProduct.getCategory()%>">
+                
+                
+            
+                
             <input type="submit" id="mysubmit" name="mysubmit" value="Create"/>
             <input type="hidden" id="formid" name="formid" value="5" />
             <input type="hidden" id="id" name="id" value="<%= CProduct.getId() %>" />
