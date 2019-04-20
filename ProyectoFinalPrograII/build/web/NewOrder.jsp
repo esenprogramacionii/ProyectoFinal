@@ -12,7 +12,7 @@
               content="width=device-width, initial-scale=1.0">
     </head>
      <%
-         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 	 Date date = new Date();
          String Adate = dateFormat.format(date);
         %>
