@@ -41,9 +41,7 @@ public class SalesDetailServlet extends HttpServlet {
                 request.getSession().setAttribute("rows", new Integer(iRows) );
                 request.getSession().setAttribute("product", Sproduct );
                 request.getSession().setAttribute("quantity", SQ );
-                
-                
-                
+
                 
                 response.sendRedirect("genericMessage1.jsp");
             }

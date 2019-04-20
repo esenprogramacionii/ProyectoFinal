@@ -14,7 +14,6 @@
         Integer Prod = (Integer)request.getSession().getAttribute("product");
         Integer Quantity = (Integer)request.getSession().getAttribute("quantity");
 
-
     %>
     <body>
         <h1>Generic Message</h1>
