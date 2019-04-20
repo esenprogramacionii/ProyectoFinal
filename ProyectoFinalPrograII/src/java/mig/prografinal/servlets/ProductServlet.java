@@ -31,18 +31,18 @@ public class ProductServlet extends HttpServlet
             if(strFormId.equals("1"))
             {
                 //get parameters
-                String strName = request.getParameter("pname");
+                String strName = request.getParameter("name");
                 String strBrand = request.getParameter("brand");
                 String strDescription = request.getParameter("description");
-                String strYear = request.getParameter("pyear");
+                String strYear = request.getParameter("year");
                 String strPrice = request.getParameter("price");
                 String strCategory = request.getParameter("category");
                 
                 
-                int iCategory = Integer.parseInt(strCategory);
+               
                 int intYear = Integer.parseInt(strYear);
                 Double dPrice = Double.parseDouble(strPrice);
-                
+                int iCategory = Integer.parseInt(strCategory);
                 
                 //access logic
                 ProductLogic CLogic = new ProductLogic();
@@ -68,7 +68,7 @@ public class ProductServlet extends HttpServlet
             if(strFormId.equals("3"))
             {
                 //get parameters
-                String strId = request.getParameter("id");
+                String strId = request.getParameter("Id");
                 int iId = Integer.parseInt(strId);
                 
                 //access logic

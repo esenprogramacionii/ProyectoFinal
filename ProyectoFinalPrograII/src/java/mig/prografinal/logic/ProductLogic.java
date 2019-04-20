@@ -67,9 +67,9 @@ public class ProductLogic extends logic
         //
         DatabaseX database = getDatabase();
         String strSql = "INSERT INTO mydb.product"
-                + "(id,strName,strBrand,strDescription, intYear, dPrice,iCategory) "
-                + "VALUES(0,"+p_strName+","+p_strBrand+","
-                + ""+p_strDescription+","+p_intYear+","+p_dPrice+","+p_iCategory+");";
+                + "(id,name,brand,description, year, price,category) "
+                + "VALUES(0,'"+p_strName+"','"+p_strBrand+"',"
+                + "'"+p_strDescription+"',"+p_intYear+","+p_dPrice+","+p_iCategory+");";
         System.out.println(strSql);
         int iRows = database.executeNonQueryRows(strSql);
         return iRows;
@@ -77,7 +77,7 @@ public class ProductLogic extends logic
     
      public int deleteProductRows(int p_iId) 
     {
-        int iRows = deleteTableRows(p_iId, "pname");
+        int iRows = deleteTableRows(p_iId, "name");
         return iRows;
     }
      
@@ -105,11 +105,11 @@ public class ProductLogic extends logic
                 while(CResult.next())
                 {
                     iId = CResult.getInt("id");
-                    strName = CResult.getString("pname");
+                    strName = CResult.getString("name");
                     strBrand = CResult.getString("brand");
                     iCategory = CResult.getInt("category");
                     strDescription = CResult.getString("description");
-                    intYear = CResult.getInt("pyear");
+                    intYear = CResult.getInt("year");
                     dPrice = CResult.getDouble("price");
                     
                     CTemp = new ProductObj(iId, strName, strBrand, strDescription, intYear, dPrice, iCategory);
@@ -130,7 +130,7 @@ public class ProductLogic extends logic
     {
         //update travelsys.client set name = 'fabricio',age = 25 where id = 9;
         DatabaseX database = getDatabase();
-        String strSql = "update travelsys.client "
+        String strSql = "update mydb.product "
                 + "set name = '"+p_strName+"', brand = '"+p_strBrand+"', categry = "+p_iCategory+", description = '"+p_strDescription+"',"
                 + "year = "+p_intYear+", price = "+p_dPrice+" "
                 + "where id = "+p_iId+" ";
