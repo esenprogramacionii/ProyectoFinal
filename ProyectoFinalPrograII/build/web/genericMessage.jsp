@@ -10,14 +10,14 @@
     <head>
         <meta http-equiv="Content-Type" 
               content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Rows affected</title>
     </head>
     <%
         Integer iRowsObj = (Integer)request.getSession().getAttribute("rows");
         int iRows = iRowsObj.intValue();
     %>
     <body>
-        <h1>Generic Message</h1>
+        <h1>Rows affected</h1>
         <br><br>
         <p><%= iRows %> rows where affected</p>
         <br><br>
