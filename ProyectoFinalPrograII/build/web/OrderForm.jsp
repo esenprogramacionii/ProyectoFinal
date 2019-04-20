@@ -21,6 +21,8 @@
         <br>
         <a href="NewOrder.jsp">New Order</a>
         <br><br>
+        <a href="index.html">Go to home page</a>
+        <br><br>
         <table>
         <tr>
             <th>Order Id</th>

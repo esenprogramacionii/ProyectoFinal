@@ -79,7 +79,7 @@ public class StockLogic extends Logic
     public ArrayList<StockViewObj> getInventory() //Nombre del método
     {
         DatabaseX database = getDatabase();
-        String strSql = "select * from mydb.stock ";
+        String strSql = "select * from mydb.inventory ";
         System.out.println(strSql);
         ResultSet CResult = database.executeQuery(strSql);
         ArrayList<StockViewObj> CArray = null;
@@ -89,9 +89,7 @@ public class StockLogic extends Logic
         {
             int iTrans;
             String StrP;
-            int PId;
             String StrS;
-            int iStore;
             int iStock;
             
             StockViewObj CTemp;
@@ -103,12 +101,10 @@ public class StockLogic extends Logic
                 {
                     iTrans = CResult.getInt("transactionid");
                     StrP = CResult.getString("product name");
-                    PId = CResult.getInt("product id");
                     StrS = CResult.getString("store name");
-                    iStore = CResult.getInt("storeid");
                     iStock = CResult.getInt("stock");
                     
-                    CTemp = new StockViewObj(iTrans, StrP, PId, StrS, iStore, iStock);
+                    CTemp = new StockViewObj(iTrans, StrP, StrS, iStock);
                     CArray.add(CTemp);
                 }
             } 

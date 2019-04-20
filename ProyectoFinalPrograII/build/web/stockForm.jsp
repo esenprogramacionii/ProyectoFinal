@@ -1,5 +1,5 @@
 <%@page import="java.util.Iterator"%>
-<%@page import="bal.travelsyswebapp.objects.StockObj"%>
+<%@page import="zepe.proyectofinal.objects.StockViewObj"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,33 +7,35 @@
     <head>
         <meta http-equiv="Content-Type" 
               content="text/html; charset=UTF-8">
-        <title>Client</title>
+        <title>STOCK</title>
         <link href="styles/tableStyles.css" rel="stylesheet" type="text/css"/>
     </head>
     <%
-        ArrayList<StockObj> CArray = 
-                (ArrayList<StockObj>)request.getSession().getAttribute("stock");
-        Iterator<StockObj> iteArray = CArray.iterator();
+        ArrayList<StockViewObj> CArray = 
+                (ArrayList<StockViewObj>)request.getSession().getAttribute("stock");
+        Iterator<StockViewObj> iteArray = CArray.iterator();
     %>
     <body>
-        <h1>Así tenemos la disponnbilidad de productos</h1>
+        <h1>Availability of products</h1>
         <table>
         <tr>
-            <th>Product ID</th>
-            <th>Store ID</th>
-            <th>Available</th>
+            <th>Transaction #</th>
+            <th>Product Name</th>
+            <th>Store Name</th>
+            <th>Stock</th>
         </tr>
         <%
             if(iteArray!=null)
             {
-                StockObj CTemp;
+                StockViewObj CTemp;
                 while(iteArray.hasNext())
                 {
                     CTemp = iteArray.next();
         %>
                 <tr>
-                    <td><%= CTemp.getid() %></td>
-                    <td><%= CTemp.getSid() %></td>
+                    <td><%= CTemp.getTrans() %></td>
+                    <td><%= CTemp.getprod() %></td>
+                    <td><%= CTemp.getstore() %></td>
                     <td><%= CTemp.getStock() %></td>
                 </tr>
         <%

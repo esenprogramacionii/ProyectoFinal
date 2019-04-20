@@ -41,7 +41,6 @@ public class StockServlet extends HttpServlet {
                 StockLogic CLogic = new StockLogic();
                 ArrayList<StockViewObj> CArray = CLogic.getInventory();
                 
-                
                 //send to frontend
                 request.getSession().setAttribute("stock", CArray);
                 response.sendRedirect("stockForm.jsp");
@@ -58,12 +57,11 @@ public class StockServlet extends HttpServlet {
                 int id = Integer.parseInt(Id);
                 int product = Integer.parseInt(strprod);
                 int Quant = Integer.parseInt(strQ);
-                int order = Integer.parseInt(Store);
+                int store = Integer.parseInt(Store);
                 
                 //access logic
                 StockLogic CLogic = new StockLogic();
-                int iRows = CLogic.insertStockRows(id, product,Quant,order);
-                System.out.println("insert client rows: " + iRows);
+                int iRows = CLogic.insertStockRows(id, product,store,Quant);
                 
                 //send to frontend, puedo enviar más de un atributo en la session
                 request.getSession().setAttribute("rows", new Integer(iRows) );
