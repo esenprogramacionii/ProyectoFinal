@@ -55,18 +55,17 @@ public class SalesDetailServlet extends HttpServlet {
                 String Store = request.getParameter("Sstore");
 
                 //ESTO ES PARA INSERTAR A LA TABLA STOCK 
-                /*int Id = Integer.parseInt(Id);
                 int prod = Integer.parseInt(strprod);
                 int Quant = Integer.parseInt(strQ);
                 int store = Integer.parseInt(Store);
                 
                 //access logic
-                StockLogic CLogic = new StockLogic();
-                int iRows = CLogic.insertStockRows(id, product,store,Quant);
+                SDetailLogic CLogic = new SDetailLogic();
+                int iRows = CLogic.updateSstock(prod,store,Quant);
                 
                 //send to frontend, puedo enviar más de un atributo en la session
                 request.getSession().setAttribute("rows", new Integer(iRows) );
-                response.sendRedirect("genericMessage1.jsp");*/
+                response.sendRedirect("genericMessage.jsp");
             }
 
             

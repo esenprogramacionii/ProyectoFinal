@@ -34,50 +34,17 @@ public class SDetailLogic extends Logic
         return iRows;
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////
-    /*public ArrayList<DetailObj> getAllDetails() //Nombre del método
+   public int updateSstock (int p_ID, int p_Store, int p_Quantity)
     {
-        //select * from travelsys.client;
         DatabaseX database = getDatabase();
-        String strSql = "select * from mydb.orderdetail ";
+    
+        String strSql = "UPDATE `mydb`.`stock`"
+                + "SET `stock` = stock-"+p_Quantity+" WHERE `productid` = "+p_ID+" AND `storeid` = "+p_Store+" LIMIT 1;";
+  
         System.out.println(strSql);
-        ResultSet CResult = database.executeQuery(strSql);
-        ArrayList<DetailObj> CArray = null;
-        
-        if(CResult!=null)
-        {
-            int iId;
-            int iproduct;
-            int iquantity;
-            int iorder;
-            
-            
-            DetailObj CTemp;
-            CArray = new ArrayList<>();
-            
-            try 
-            {
-                while(CResult.next())
-                {
-                    iId = CResult.getInt("id");
-                    iproduct = CResult.getInt("product");
-                    iquantity = CResult.getInt("quantity");
-                    iorder = CResult.getInt("orderid");
-                    
-                    
-                    CTemp = new DetailObj(iId, iproduct, iquantity, iorder);
-                    CArray.add(CTemp);
-                }
-            } 
-            catch (SQLException ex) 
-            {
-                Logger.getLogger(SDetailLogic.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        
-        return CArray;
-        
-    }*/
-
+        int iRows = database.executeNonQueryRows(strSql);
+        return iRows;
+    }
    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   
 }

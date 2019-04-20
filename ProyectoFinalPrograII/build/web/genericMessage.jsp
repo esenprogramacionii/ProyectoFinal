@@ -14,7 +14,7 @@
     <body>
         <h1>Generic Message</h1>
         <br><br>
-        <p><%= iRows %> rows where affected</p>
+        <p><%= iRows %> rows where affected by the UPDATE</p>
         <br><br>
         <a href="index.html">Home</a>
     </body>
