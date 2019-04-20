@@ -22,7 +22,7 @@
 }
 @keyframes animate{
     0%,100%{
-        background-image: url( landscape-1459816624-1954-mercedes-300sl-gullwing-a.jpg);
+        background-image: url(landscape-1459816624-1954-mercedes-300sl-gullwing-a.jpg);
     }
     25%{
         background-image: url( 2.jpg);
