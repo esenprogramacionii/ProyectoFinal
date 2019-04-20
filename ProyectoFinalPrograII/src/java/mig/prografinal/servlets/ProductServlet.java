@@ -88,11 +88,11 @@ public class ProductServlet extends HttpServlet
                 
                 //access logic
                 ProductLogic CLogic = new ProductLogic();
-                ProductObj CClient = CLogic.getProductById(iId);
+                ProductObj CProduct = CLogic.getProductById(iId);
                 
                 //send to frontend
-                request.getSession().setAttribute("client", CClient);
-                response.sendRedirect("clientUpdateForm.jsp");
+                request.getSession().setAttribute("product", CProduct);
+                response.sendRedirect("ProductUpdateForm.jsp");
             }            
             
             if(strFormId.equals("5"))
@@ -101,18 +101,19 @@ public class ProductServlet extends HttpServlet
                 String strId = request.getParameter("id");
                 String strName = request.getParameter("name");
                 String strBrand = request.getParameter("brand");
-                String strCategory = request.getParameter("category");
                 String strDescription = request.getParameter("description");
                 String strYear = request.getParameter("year");
                 String strPrice = request.getParameter("price");
+                String strCategory = request.getParameter("category");
+                
                 int iId = Integer.parseInt(strId);
-                int iCategory = Integer.parseInt(strCategory);
                 int intYear = Integer.parseInt(strYear);
                 double dPrice = Double.parseDouble(strPrice);
+                int iCategory = Integer.parseInt(strCategory);
                 
                 //access logic
                 ProductLogic CLogic = new ProductLogic();
-                int iRows = CLogic.updateProductRows(iId,strName, strBrand, iCategory, strDescription, intYear, dPrice);
+                int iRows = CLogic.updateProductRows(iId,strName, strBrand, strDescription, intYear, dPrice, iCategory);
                 System.out.println("update product rows: " + iRows);
                 
                 //send to frontend

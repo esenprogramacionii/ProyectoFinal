@@ -125,14 +125,14 @@ public class ProductLogic extends logic
         
     }
     
-     public int updateProductRows(int p_iId, String p_strName, String p_strBrand, int p_iCategory,  String p_strDescription,
-             int p_intYear, double p_dPrice) 
+     public int updateProductRows(int p_iId, String p_strName, String p_strBrand,  String p_strDescription,
+             int p_intYear, double p_dPrice, int p_iCategory) 
     {
         //update travelsys.client set name = 'fabricio',age = 25 where id = 9;
         DatabaseX database = getDatabase();
         String strSql = "update mydb.product "
-                + "set name = '"+p_strName+"', brand = '"+p_strBrand+"', categry = "+p_iCategory+", description = '"+p_strDescription+"',"
-                + "year = "+p_intYear+", price = "+p_dPrice+" "
+                + "set name = '"+p_strName+"', brand = '"+p_strBrand+"', description = '"+p_strDescription+"',"
+                + "year = "+p_intYear+", price = "+p_dPrice+", category = "+p_iCategory+" "
                 + "where id = "+p_iId+" ";
         System.out.println(strSql);
         int iRows = database.executeNonQueryRows(strSql);
