@@ -32,7 +32,7 @@
             
             
             <label>Date:</label><br>
-            <input type="text" id="date" name="date" value="<%= CSales.getDate() %>" />
+            <input type="text" id="date" name="date" value="<%= CSales.getDate() %>" readonly/>
             <br><br>
             
             <input type="submit" id="mysubmit" name="mysubmit" value="Update"/>

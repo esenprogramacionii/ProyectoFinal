@@ -18,7 +18,7 @@
     <body>
         <h1>Sales</h1>
         <br>
-        <a href="salesNew.html">New Sales</a>
+        <a href="salesNew.jsp">New Sales</a>
         <br><br>
         <table>
         <tr>
