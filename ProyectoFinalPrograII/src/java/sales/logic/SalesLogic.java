@@ -58,10 +58,9 @@ public class SalesLogic extends Logic
     //metodo2
     public int insertSalesRows(String p_strFirstname, String p_strLastname, String p_strDate)
     {
-        //INSERT INTO travelsys.client(id,name,age) VALUES(0,'pepito',24);
         DatabaseX database = getDatabase();
-        String strSql = "INSERT INTO mydb.sales(id,firstname,lastname,date) VALUES(0,'"+p_strFirstname+"','"+p_strLastname+"','"+p_strDate+"')";
-        
+        String strSql = "INSERT INTO mydb.sales(id,firstname,lastname,date) "
+                + "VALUES(0,'"+p_strFirstname+"','"+p_strLastname+"','"+p_strDate+"')";
         System.out.println(strSql);
         int iRows = database.executeNonQueryRows(strSql);
         return iRows;
@@ -122,4 +121,31 @@ public class SalesLogic extends Logic
         int iRows = database.executeNonQueryRows(strSql);
         return iRows;
     }
+    
+   //METODO PARA OBTENER ULTIMO ID INSERTADO 
+    public int getlastid() {
+        DatabaseX database = getDatabase();
+        String StrSql = "SELECT LAST_INSERT_ID() as lastid";
+        System.out.println(StrSql);
+        int lastId = 0;
+        ResultSet rs = database.executeQuery(StrSql);
+        
+        if(rs!=null)
+        {
+
+            try {
+                while(rs.next())
+                {
+                    lastId = rs.getInt("lastid");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(SalesLogic.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+         }
+
+        return lastId;
+    
+        }
+   
 }

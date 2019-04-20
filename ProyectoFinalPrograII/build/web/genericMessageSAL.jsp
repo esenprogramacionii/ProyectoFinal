@@ -10,6 +10,8 @@
     <%
         Integer iRowsObj = (Integer)request.getSession().getAttribute("rows");
         int iRows = iRowsObj.intValue();
+        
+        Integer SalesId = (Integer)request.getSession().getAttribute("lastsale");
     %>
     <body>
         <h1>Generic Message</h1>
@@ -29,20 +31,13 @@
             <br><br>
             
             <label>Related orden Id:</label><br>
-            <input type="number" id="order" name="order" value="<%= OrderId %>" readonly/>
+            <input type="number" id="order" name="order" value="<%= SalesId %>" readonly/>
             <br><br>
             
             <input type="submit" id="mysubmit" name="mysubmit" value="Create"/>
             <input type="hidden" id="formid" name="formid" value="1" />
         </form>
-        
-        
-        
-        
-        
-        
-        
-        
+
         <a href="index.html">Home</a>
     </body>
 </html>

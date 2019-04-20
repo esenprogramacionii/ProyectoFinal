@@ -44,11 +44,15 @@ public class SalesServlet extends HttpServlet
                 //access logic
                 SalesLogic CLogic = new SalesLogic();
                 int iRows = CLogic.insertSalesRows(strFirstname, strLastname, strDate);
-                System.out.println("insert sales rows: " + iRows);
+                int lastid = CLogic.getlastid();
+                
+                System.out.println(lastid);
+                
                 
                 //send to frontend
                 request.getSession().setAttribute("rows", new Integer(iRows) );
-                response.sendRedirect("genericMessage.jsp");
+                request.getSession().setAttribute("lastsale", lastid );
+                response.sendRedirect("genericMessageSAL.jsp");
             }
             
              if(strFormId.equals("2"))
