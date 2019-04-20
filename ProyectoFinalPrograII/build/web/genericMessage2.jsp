@@ -20,7 +20,6 @@
         Integer prod = (Integer)request.getSession().getAttribute("product");
         Integer stock = (Integer)request.getSession().getAttribute("stock");
 
-
     %>
     <body>
         <h1>Primera parte de la orden completada</h1>
