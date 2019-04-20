@@ -1,0 +1,52 @@
+.body{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    animation: animate 16s ease-in-out infinite;
+    background-size: cover;
+}
+.outer{
+    position: absolute;
+    left:0;
+    top: 0;
+    color: #fff;
+    width: 100%;
+    height: 100vh;
+   
+}
+@keyframes animate{
+    0%,100%{
+        background-image: url( landscape-1459816624-1954-mercedes-300sl-gullwing-a.jpg);
+    }
+    25%{
+        background-image: url( 2.jpg);
+    }
+    50%{
+        background-image: url( benz.jpg);
+    }
+    75%{
+        background-image: url( porche.jpg);
+    }
+}
+.details{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute; 
+    letter-spacing: 5px;
+    text-align: center;
+}
+.details h1{
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+.details p{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
