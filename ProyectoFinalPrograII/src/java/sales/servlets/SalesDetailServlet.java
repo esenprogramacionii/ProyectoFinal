@@ -43,7 +43,7 @@ public class SalesDetailServlet extends HttpServlet {
                 request.getSession().setAttribute("quantity", SQ );
 
                 
-                response.sendRedirect("genericMessage1.jsp");
+                response.sendRedirect("genericMessage4.jsp");
             }
             
              
