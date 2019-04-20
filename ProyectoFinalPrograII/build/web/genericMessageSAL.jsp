@@ -17,10 +17,10 @@
         <h1>Generic Message</h1>
         <br><br>
         <p><%= iRows %> rows where affected</p>
-        <br><br>
+        <br>
         
       <h2>What did the person buy?</h2>
-        <form id="form" name="form" action="SalesServlet" method="get">
+      <form id="sform" name="sform" action="SalesDetailServlet" method="get">
             
             <label>What product did the person buy?:</label><br>
             <input type="number" id="product" name="product" />
@@ -30,8 +30,8 @@
             <input type="number" id="quantity" name="quantity" />
             <br><br>
             
-            <label>Related orden Id:</label><br>
-            <input type="number" id="order" name="order" value="<%= SalesId %>" readonly/>
+            <label>Related Sales Id:</label><br>
+            <input type="number" id="sale" name="sale" value="<%= SalesId %>" readonly/>
             <br><br>
             
             <input type="submit" id="mysubmit" name="mysubmit" value="Create"/>

@@ -147,5 +147,16 @@ public class SalesLogic extends Logic
         return lastId;
     
         }
-   
+    
+   //METODO PARA INSERTAR FILAS EN SALESDETAIL
+   public int insertSalesDRows(int p_iID, int p_iProd, int p_iQ)
+    {
+        DatabaseX database = getDatabase();
+        String strSql = "INSERT INTO mydb.salesdetail(id,product,sales,quantity) "
+                + "VALUES(0,"+p_iID+","+p_iProd+","+p_iQ+")";
+        System.out.println(strSql);
+        int iRows = database.executeNonQueryRows(strSql);
+        return iRows;
+    }
+
 }
