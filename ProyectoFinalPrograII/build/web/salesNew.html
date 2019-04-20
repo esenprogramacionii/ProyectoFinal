@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>New Sale</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" 
+              content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>New Sale</h1>
+        <br><br>
+        
+        <form id="myform" name="myform" action="SalesServlet" method="get">
+            <label>First name:</label><br>
+            <input type="text" id="firstname" name="firstname" />
+            <br><br>
+            
+            <label>Last name:</label><br>
+            <input type="text" id="lastname" name="lastname" />
+            <br><br>
+            
+            <label>Date:</label><br>
+            <input type="text" id="date" name="date" />
+            <br><br>
+            
+            <input type="submit" id="mysubmit" name="mysubmit" value="Create"/>
+            <input type="hidden" id="formid" name="formid" value="1" />
+        </form>
+        
+    </body>
+</html>
