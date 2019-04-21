@@ -20,7 +20,7 @@
         <br><br>
         
         <p><%= iRowsObj %> dato(s) fueron afectados. </p>
-        <a href="Proveedores.jsp">Regresar a Proveedores</a>
+        <a href="index.html">Go to home page</a>
        
     </body>
 </html>
