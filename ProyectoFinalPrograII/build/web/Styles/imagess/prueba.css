@@ -41,6 +41,8 @@
     position: absolute; 
     letter-spacing: 5px;
     text-align: center;
+    border: 1px solid rgba(0,0,0,5);
+    background: rgba(0,0,0,.4);
 }
 .details h1{
     font-size: 35px;
