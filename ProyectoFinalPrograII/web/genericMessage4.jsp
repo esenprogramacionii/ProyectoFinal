@@ -19,7 +19,7 @@
         <br><br>
         <p><%= iRows %> rows where affected.</p>
         <br>
-        <p>Has ordenado <%= Quantity %> elementos del producto <%= Prod %> </p>
+        <p>Has comprado <%= Quantity %> elementos del producto <%= Prod %> </p>
         <br><br>
         <h2>Where did the person buy?</h2>
         <form id="form" name="form" action="SalesDetailServlet" method="get">       
