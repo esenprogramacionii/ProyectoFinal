@@ -1,8 +1,4 @@
-<%-- 
-    Document   : genericMessage
-    Created on : Mar 29, 2019, 8:45:35 PM
-    Author     : balbi
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
