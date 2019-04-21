@@ -1,6 +1,6 @@
-<%@page import="zepe.proyectofinal.objects.BStoreObj"%>
+<%@page import="Inventory.prografinal.objects.BStoreObj"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="zepe.proyectofinal.objects.FinalObj"%>
+<%@page import="Inventory.prografinal.objects.FinalObj"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

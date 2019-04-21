@@ -1,7 +1,7 @@
 
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="mig.prografinal.objects.ProductView"%>
+<%@page import="Inventory.prografinal.objects.ProductView"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

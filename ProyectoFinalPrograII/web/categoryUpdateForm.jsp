@@ -1,5 +1,5 @@
 
-<%@page import="mig.prografinal.objects.categoryObj"%>
+<%@page import="Inventory.prografinal.objects.categoryObj"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
