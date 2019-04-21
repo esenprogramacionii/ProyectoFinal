@@ -11,10 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import sales.logic.SalesLogic;
 import sales.objects.SalesObj;
 
-/**
- *
- * @author Marlene
- */
 @WebServlet(name = "SalesServlet", urlPatterns = {"/SalesServlet"})
 public class SalesServlet extends HttpServlet 
 
