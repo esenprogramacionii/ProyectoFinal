@@ -39,7 +39,7 @@ public class SDetailLogic extends Logic
         DatabaseX database = getDatabase();
     
         String strSql = "UPDATE `mydb`.`stock`"
-                + "SET `stock` = stock-"+p_Quantity+" WHERE `productid` = "+p_ID+" AND `storeid` = "+p_Store+" LIMIT 1;";
+                + "SET `stock` = stock-"+p_Quantity+" WHERE `productid` = "+p_ID+" AND `storeid` = "+p_Store+" AND stock > 0 LIMIT 1;";
   
         System.out.println(strSql);
         int iRows = database.executeNonQueryRows(strSql);

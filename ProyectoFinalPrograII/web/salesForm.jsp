@@ -26,7 +26,7 @@
             <th>Id</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Date</th>
+            <th>Date the sale was registered</th>
         </tr>
         <%
             if(iteArray!=null)

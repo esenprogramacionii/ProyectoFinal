@@ -41,7 +41,16 @@
                     <td><%= CTemp.getid() %></td>
                     <td><%= CTemp.getSupplier() %></td>
                     <td><%= CTemp.getdate() %></td>
-
+                    <td>
+                        <a href="OrderServlet?formid=4&id=<%= CTemp.getid() %>">
+                            Update Order
+                        </a>
+                    </td>
+                    <td>
+                        <a href="OrderServlet?formid=3&id=<%= CTemp.getid() %>">
+                            Delete Order
+                        </a>
+                    </td>
                 </tr>
         <%
                 }

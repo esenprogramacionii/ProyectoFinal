@@ -12,7 +12,6 @@ import java.util.logging.Logger;
 public class OrderLogic extends Logic
 
 {
-    
     public boolean insertOrderBool(int p_Iid, int p_Supplier, String p_date)
     {
         //INSERT INTO travelsys.client(id,name,age) VALUES(0,'pepito',24);
@@ -106,6 +105,12 @@ public class OrderLogic extends Logic
         
         return CArray;
         
+    }
+    
+      public int deleteOrderRows(int p_iId) //metodo para borrar ordenes
+    {
+        int iRows = deleteTableRows(p_iId, "order");
+        return iRows;
     }
 }
     

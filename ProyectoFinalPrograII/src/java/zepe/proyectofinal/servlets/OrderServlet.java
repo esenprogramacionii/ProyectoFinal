@@ -61,6 +61,21 @@ public class OrderServlet extends HttpServlet {
                 response.sendRedirect("OrderForm.jsp");
             }
             
+             if(strFormId.equals("3"))
+            {
+                //get parameters
+                String strId = request.getParameter("id");
+                int iId = Integer.parseInt(strId);
+                
+                //access logic
+                OrderLogic CLogic = new OrderLogic();
+                int iRows = CLogic.deleteOrderRows(iId);
+                
+                //send to frontend
+                request.getSession().setAttribute("rows", iRows);
+                response.sendRedirect("genericMessage.jsp");
+            }
+            
             
             
  
