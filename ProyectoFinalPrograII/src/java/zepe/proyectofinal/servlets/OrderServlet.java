@@ -11,6 +11,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import zepe.proyectofinal.logic.StockLogic;
+import zepe.proyectofinal.objects.BStoreObj;
+
 
 @WebServlet(name = "OrderServlet", urlPatterns = {"/OrderServlet"})
 public class OrderServlet extends HttpServlet {
@@ -57,6 +60,9 @@ public class OrderServlet extends HttpServlet {
                 request.getSession().setAttribute("orders", CArray);
                 response.sendRedirect("OrderForm.jsp");
             }
+            
+            
+            
  
             
         }

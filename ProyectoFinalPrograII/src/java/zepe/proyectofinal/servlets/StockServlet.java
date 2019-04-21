@@ -74,6 +74,16 @@ public class StockServlet extends HttpServlet {
                 response.sendRedirect("genericMessage1.jsp");
             }
             
+            if(strFormId.equals("4")) //Obtener todos los campos de una tabla
+            {
+                //access logic
+                StockLogic BLogic = new StockLogic();
+                ArrayList<BStoreObj> BArray = BLogic.getBStore();
+                
+                //send to frontend
+                request.getSession().setAttribute("bystore", BArray);
+                response.sendRedirect("NewOrder.jsp");
+            }
             
             
         }

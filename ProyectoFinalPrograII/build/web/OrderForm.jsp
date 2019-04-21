@@ -19,7 +19,7 @@
     <body>
         <h1>Generated orders</h1>
         <br>
-        <a href="NewOrder.jsp">New Order</a>
+        <a href="StockServlet?formid=4">New Order</a>
         <br><br>
         <a href="index.html">Go to home page</a>
         <br><br>

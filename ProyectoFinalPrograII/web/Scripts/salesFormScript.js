@@ -4,15 +4,13 @@ $(document).ready(function()
     $("#myform").validate({
         rules:{
             firstname: {
-                required: true,
-                min: 10
+                required: true
             },
             lastname: {
-                required: true,
-                min: 10
+                required: true
             },
             date: {
-               required: true,
+               required: true
             }
         }
     });
