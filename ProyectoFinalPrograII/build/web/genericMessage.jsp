@@ -1,27 +1,10 @@
-<<<<<<< HEAD
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-=======
-<%-- 
-    Document   : genericMessage
-    Created on : Mar 29, 2019, 8:45:35 PM
-    Author     : balbi
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-
->>>>>>> ABC1
 <html>
     <head>
         <meta http-equiv="Content-Type" 
               content="text/html; charset=UTF-8">
-<<<<<<< HEAD
-        <title>First part finished</title>
-=======
-        <title>JSP Page</title>
->>>>>>> ABC1
+        <title>Generic Message</title>
     </head>
     <%
         Integer iRowsObj = (Integer)request.getSession().getAttribute("rows");
@@ -34,8 +17,5 @@
         <br><br>
         <a href="index.html">Home</a>
     </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> ABC1
+
