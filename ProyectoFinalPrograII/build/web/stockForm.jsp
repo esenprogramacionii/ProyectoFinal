@@ -9,7 +9,7 @@
         <meta http-equiv="Content-Type" 
               content="text/html; charset=UTF-8">
         <title>STOCK</title>
-        <link href="styles/tableStyles.css" rel="stylesheet" type="text/css"/>
+        <link href="Styles/tableStyles.css" rel="stylesheet" type="text/css"/>
     </head>
     <%
         ArrayList<FinalObj> CArray = 

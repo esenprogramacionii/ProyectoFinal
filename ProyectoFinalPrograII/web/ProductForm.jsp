@@ -7,7 +7,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="styles/tableStyles.css" rel="stylesheet" type="text/css"/>
+        <link href="Styles/tableStyles.css" rel="stylesheet" type="text/css"/>
         <title>Product Form</title>
     </head>
     <%
