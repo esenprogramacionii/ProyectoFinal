@@ -45,7 +45,7 @@
                     <td><%= CTemp.getCategory() %></td>
                     <td><%= CTemp.getDescription() %></td>
                     <td><%= CTemp.getYear() %></td>
-                    <td><%= CTemp.getPrice() %></td>
+                    <td>$<%= CTemp.getPrice() %></td>
                     <td>
                         <a href="ProductServlet?formid=4&id=<%= CTemp.getId() %>">
                             update
