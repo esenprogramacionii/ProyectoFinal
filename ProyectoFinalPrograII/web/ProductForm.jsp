@@ -7,6 +7,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="Styles/tablecss.css" rel="stylesheet" type="text/css"/>
         <title>Product Form</title>
     </head>
     <%
@@ -17,7 +18,7 @@
     <body>
         <h1>Product Form</h1>
         <br>
-        <a href="ProductServlet?formid=6">New Product</a>
+        <a href="ProductServlet?formid=6" allign="right">New Product</a>
         <br><br>
         <table>
         <tr>
