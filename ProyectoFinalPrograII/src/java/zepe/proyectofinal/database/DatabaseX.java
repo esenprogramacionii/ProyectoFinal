@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 public class DatabaseX 
 {
-    //variables de clase
+    
     private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String DB_URL = "jdbc:mysql://localhost:3306/mydb"
                 + "?autoReconnect=true"
@@ -163,5 +163,5 @@ public class DatabaseX
         }
         
         return iSuccess;
-    }
+    }    
 }

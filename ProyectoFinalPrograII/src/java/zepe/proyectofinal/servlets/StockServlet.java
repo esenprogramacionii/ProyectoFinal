@@ -2,7 +2,6 @@
 package zepe.proyectofinal.servlets;
 
 import zepe.proyectofinal.logic.StockLogic;
-import zepe.proyectofinal.objects.StockViewObj;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
