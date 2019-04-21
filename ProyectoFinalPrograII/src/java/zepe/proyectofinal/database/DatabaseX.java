@@ -20,7 +20,7 @@ public class DatabaseX
                 + "&useLegacyDatetimeCode=false"
                 + "&serverTimezone=UTC";
     private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "clayre";
+    private static final String DB_PASSWORD = "timel";
     
     //para hacer la conexion
     private Connection m_CConnection;
