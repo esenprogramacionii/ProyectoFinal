@@ -1,5 +1,5 @@
 <%@page import="java.util.Iterator"%>
-<%@page import="zepe.proyectofinal.objects.BStoreObj"%>
+<%@page import="Inventory.prografinal.objects.BStoreObj"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.text.SimpleDateFormat"%>

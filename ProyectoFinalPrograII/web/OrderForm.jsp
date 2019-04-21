@@ -1,5 +1,5 @@
 <%@page import="java.util.Iterator"%>
-<%@page import="zepe.proyectofinal.objects.OrderObj"%>
+<%@page import="Inventory.prografinal.objects.OrderObj"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

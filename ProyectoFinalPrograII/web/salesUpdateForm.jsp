@@ -1,4 +1,4 @@
-<%@page import="sales.objects.SalesObj"%>
+<%@page import="Inventory.prografinal.objects.SalesObj"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
