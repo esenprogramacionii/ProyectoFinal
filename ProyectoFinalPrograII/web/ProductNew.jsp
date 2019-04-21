@@ -7,7 +7,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <meta name="viewport" 
+              content="width=device-width, initial-scale=1.0">
         <title>New Trip</title>
+        <script src="Scripts/jquery-3.3.1.js" type="text/javascript"></script>
+        <script src="Scripts/jquery.validate.js" type="text/javascript"></script>
+        <script src="Scripts/productNewScript.js" type="text/javascript"></script>
     </head>
     <%
         ArrayList<categoryObj> CCategoryArray = 
