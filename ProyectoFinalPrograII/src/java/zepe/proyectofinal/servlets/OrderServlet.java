@@ -57,6 +57,17 @@ public class OrderServlet extends HttpServlet {
                 request.getSession().setAttribute("orders", CArray);
                 response.sendRedirect("OrderForm.jsp");
             }
+            
+            if(strFormId.equals("3")) //Obtener todos los campos de una tabla
+            {
+                //access logic
+                OrderLogic CLogic = new OrderLogic();
+                ArrayList<OrderObj> CArray = CLogic.getAllOrders();
+                
+                //send to frontend
+                request.getSession().setAttribute("orders", CArray);
+                response.sendRedirect("NewOrder.jsp");
+            }
  
             
         }
