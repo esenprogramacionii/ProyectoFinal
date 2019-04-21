@@ -9,6 +9,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" 
               content="width=device-width, initial-scale=1.0">
+        <script src="Scripts/jquery-3.3.1.js" type="text/javascript"></script>
+        <script src="Scripts/jquery.validate.js" type="text/javascript"></script>
+        <script src="Scripts/salesFormScript.js" type="text/javascript"></script>
     </head>
      <%
          DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");

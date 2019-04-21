@@ -1,5 +1,5 @@
 <%@page import="java.util.Iterator"%>
-<%@page import="zepe.proyectofinal.objects.OrderObj"%>
+<%@page import="Inventory.prografinal.objects.OrderObj"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -19,7 +19,7 @@
     <body>
         <h1>Generated orders</h1>
         <br>
-        <a href="NewOrder.jsp">New Order</a>
+        <a href="StockServlet?formid=4">New Order</a>
         <br><br>
         <a href="index.html">Go to home page</a>
         <br><br>
@@ -41,7 +41,16 @@
                     <td><%= CTemp.getid() %></td>
                     <td><%= CTemp.getSupplier() %></td>
                     <td><%= CTemp.getdate() %></td>
-
+                    <td>
+                        <a href="OrderServlet?formid=4&id=<%= CTemp.getid() %>">
+                            Update Order
+                        </a>
+                    </td>
+                    <td>
+                        <a href="OrderServlet?formid=3&id=<%= CTemp.getid() %>">
+                            Delete Order
+                        </a>
+                    </td>
                 </tr>
         <%
                 }

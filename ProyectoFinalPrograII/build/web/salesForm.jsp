@@ -1,5 +1,5 @@
 <%@page import="java.util.Iterator"%>
-<%@page import="sales.objects.SalesObj"%>
+<%@page import="Inventory.prografinal.objects.SalesObj"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,9 +9,7 @@
               content="text/html; charset=UTF-8">
         <title>Sales</title>
         <link href="styles/tableStyles.css" rel="stylesheet" type="text/css"/>
-        <script src="Scripts/jquery-3.3.1.js" type="text/javascript"></script>
-        <script src="Scripts/jquery.validate.js" type="text/javascript"></script>
-        <script src="Scripts/salesFormScript.js" type="text/javascript"></script>
+        
     </head>
     <%
         ArrayList<SalesObj> CArray = 
@@ -28,7 +26,7 @@
             <th>Id</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Date</th>
+            <th>Date the sale was registered</th>
         </tr>
         <%
             if(iteArray!=null)
