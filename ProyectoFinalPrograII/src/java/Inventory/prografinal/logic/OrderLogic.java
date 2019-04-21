@@ -107,11 +107,11 @@ public class OrderLogic extends logic
         
     }
     
-      public int deleteOrderRows(int p_iId) //metodo para borrar ordenes
+      /*public int deleteOrderRows(int p_iId) //metodo para borrar ordenes
     {
         int iRows = deleteTableRows(p_iId, "order");
         return iRows;
-    }
+    }*/
 }
     
     

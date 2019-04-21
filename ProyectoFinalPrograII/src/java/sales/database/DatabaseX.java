@@ -1,6 +1,5 @@
 
-package Inventory.prografinal.database;
-
+package sales.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,9 +9,8 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class DatabaseX 
-{ 
-    // creando las variables de la clase, conector para la base de datos
+public class DatabaseX {
+    //variables de clase
     private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String DB_URL = "jdbc:mysql://localhost:3306/mydb"
                 + "?autoReconnect=true"
@@ -22,54 +20,52 @@ public class DatabaseX
                 + "&useLegacyDatetimeCode=false"
                 + "&serverTimezone=UTC";
     private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "12345";
-
+    private static final String DB_PASSWORD = "timel";
     
     //para hacer la conexion
     private Connection m_CConnection;
     private Statement m_CStatement;
     private ResultSet m_CResultSet;
 
-    //todo pasa en el constructor, crear la conexion para la base de datos.
-    public DatabaseX()
+    //todo pasa en el constructor
+    public DatabaseX() 
     {
-        //creando la conexion
+        //primer paso crear la connection
         setConnection( createConnection() );
         //segundo paso crear el statement
         setStatement( createStatement() );
-        
     }
-    
-     //una vez creada la conexion y el statement se hacen los getters y setters de cada uno.
 
-    public Connection getConnection() {
+    public Connection getConnection() 
+    {
         return m_CConnection;
     }
 
-    public void setConnection(Connection p_CConnection) {
-         m_CConnection = p_CConnection;
+    private void setConnection(Connection p_CConnection) 
+    {
+        m_CConnection = p_CConnection;
     }
 
-    public Statement getStatement() {
+    public Statement getStatement() 
+    {
         return m_CStatement;
     }
 
-    public void setStatement(Statement p_CStatement) {
+    private void setStatement(Statement p_CStatement) 
+    {
         m_CStatement = p_CStatement;
     }
 
-    public ResultSet getResultSet() {
+    public ResultSet getResultSet() 
+    {
         return m_CResultSet;
     }
 
-    public void setResultSet(ResultSet p_CResultSet) {
+    private void setResultSet(ResultSet p_CResultSet) 
+    {
         m_CResultSet = p_CResultSet;
     }
-    
-    //Una vez declaradas las variables hay que generar las conexiones y los statements para las consultas
-    // de la base de datos 
-    
-    //Generador de la conexion.
+
     private Connection createConnection() 
     {
         Connection CConexion = null;
@@ -79,15 +75,16 @@ public class DatabaseX
             CConexion =
                     DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
         } 
-        catch (ClassNotFoundException | SQLException ex) 
+        catch (ClassNotFoundException | SQLException ex)
+            
         {
             Logger.getLogger(DatabaseX.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("No DB found");
         }
         return CConexion;
     }
-        //Generador del Statement
-        
-       private Statement createStatement() 
+
+    private Statement createStatement() 
     {
         //variables locales o variables de metodo
         Connection CConnection = getConnection();
@@ -97,6 +94,7 @@ public class DatabaseX
             if(!CConnection.isClosed())
             {
                 stm = CConnection.createStatement();
+                System.out.println("success");
             }
         }
         catch(SQLException ex)
@@ -106,8 +104,7 @@ public class DatabaseX
         return stm;
     }
     
-       //Crear el result set que almacenará la información consultada por el conector y el statement.
-       public ResultSet executeQuery(String p_strSql)
+    public ResultSet executeQuery(String p_strSql)
     {
         Connection con = getConnection();
         Statement stm = getStatement();
@@ -115,21 +112,21 @@ public class DatabaseX
         
         try 
         {
-            if(!con.isClosed()) //Si la conexion es abierta se ejecutará el query creado por el servlet y procesado en el logic
+            if(!con.isClosed())
             {
                 result = stm.executeQuery(p_strSql);
             }
         } 
-        catch (SQLException ex) //Si da error crea la siguiente linea de código
+        catch (SQLException ex) 
         {
             Logger.getLogger(DatabaseX.class.getName()).log(Level.SEVERE, null, ex);
         }
         setResultSet( result );
         
-        return result; //retorna el resultado como una expresión.
+        return result;
     }
-        //Se hace la consulta del nonquery para retornar el numero de filas que han sido afectadas en la BD
-        public int executeNonQueryRows(String p_strSql)
+
+    public int executeNonQueryRows(String p_strSql)
     {
         Connection con = getConnection();
         Statement stm = getStatement();
@@ -150,8 +147,7 @@ public class DatabaseX
         return iRows;
     }
     
-        //Retorna el argumento lógico que hace que el statement declarado procese la informacion y ejecute el query.
-        public boolean executeNonQueryBool(String p_strSql)
+    public boolean executeNonQueryBool(String p_strSql)
     {
         Connection con = getConnection();
         Statement stm = getStatement();
@@ -170,5 +166,6 @@ public class DatabaseX
         }
         
         return iSuccess;
-    }    
-} 
+    }   
+    
+}

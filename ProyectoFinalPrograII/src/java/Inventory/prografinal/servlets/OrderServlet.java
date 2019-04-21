@@ -61,7 +61,7 @@ public class OrderServlet extends HttpServlet {
                 response.sendRedirect("OrderForm.jsp");
             }
             
-             if(strFormId.equals("3"))
+             /*if(strFormId.equals("3"))
             {
                 //get parameters
                 String strId = request.getParameter("id");
@@ -74,7 +74,7 @@ public class OrderServlet extends HttpServlet {
                 //send to frontend
                 request.getSession().setAttribute("rows", iRows);
                 response.sendRedirect("genericMessage.jsp");
-            }
+            }*/
             
             
             
