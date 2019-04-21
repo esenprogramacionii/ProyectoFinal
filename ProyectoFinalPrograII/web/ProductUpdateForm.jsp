@@ -15,8 +15,11 @@
     <%
         ProductObj CProduct = 
                 (ProductObj)request.getSession().getAttribute("product");
+        
+        categoryObj CCategory =
+                (categoryObj)request.getSession().getAttribute("category");
     %>
-   
+        
     
     <body>
         <h1>Update Product</h1>
@@ -46,8 +49,9 @@
             <input type="number" id="price" name="price" value="<%= CProduct.getPrice()%>" />
             <br><br>
             
-            <label>Category</label><br>
-            <input id="category" name="category" value="<%= CProduct.getCategory()%>">
+            <label>Category:</label><br>
+            <input id="category" name="category" value="<%= CProduct.getCategory() %> ">
+             
                 
                 
             
