@@ -1,4 +1,3 @@
-
 package sales.logic;
 
 import sales.database.DatabaseX;
@@ -36,8 +35,7 @@ public class Logic
     {
         //delete from travelsys.client where id=0;
         DatabaseX database = getDatabase();
-        String strSql = "delete from mydb."+p_strTableName+" "
-                + "where id="+p_iId+" ";
+        String strSql = "delete from mydb."+p_strTableName+" where id="+p_iId+" ";
         System.out.println(strSql);
         int iRows = database.executeNonQueryRows(strSql);
         return iRows;

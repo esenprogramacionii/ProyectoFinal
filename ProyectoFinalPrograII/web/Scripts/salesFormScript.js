@@ -13,7 +13,6 @@ $(document).ready(function()
             },
             date: {
                required: true,
-               min: 10
             }
         }
     });

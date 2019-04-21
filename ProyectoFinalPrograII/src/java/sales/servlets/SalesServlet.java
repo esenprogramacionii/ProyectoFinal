@@ -52,8 +52,6 @@ public class SalesServlet extends HttpServlet
                 SalesLogic CLogic = new SalesLogic();
                 ArrayList<SalesObj> CArray = CLogic.getAllSales();
                 
-                //envair un correo
-                
                 //send to frontend
                 request.getSession().setAttribute("sales", CArray);
                 response.sendRedirect("salesForm.jsp");

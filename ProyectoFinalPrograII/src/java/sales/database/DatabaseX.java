@@ -75,9 +75,11 @@ public class DatabaseX {
             CConexion =
                     DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
         } 
-        catch (ClassNotFoundException | SQLException ex) 
+        catch (ClassNotFoundException | SQLException ex)
+            
         {
             Logger.getLogger(DatabaseX.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("No DB found");
         }
         return CConexion;
     }
@@ -92,6 +94,7 @@ public class DatabaseX {
             if(!CConnection.isClosed())
             {
                 stm = CConnection.createStatement();
+                System.out.println("success");
             }
         }
         catch(SQLException ex)
