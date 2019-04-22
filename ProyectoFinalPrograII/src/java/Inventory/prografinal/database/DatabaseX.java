@@ -22,7 +22,7 @@ public class DatabaseX
                 + "&useLegacyDatetimeCode=false"
                 + "&serverTimezone=UTC";
     private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "clayre";
+    private static final String DB_PASSWORD = "12345";
 
     
     //para hacer la conexion

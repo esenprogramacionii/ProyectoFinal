@@ -131,6 +131,16 @@ public class ProductServlet extends HttpServlet
                 
                 response.sendRedirect("ProductNew.jsp");
             }            
+             if(strFormId.equals("7"))
+            {
+                //load all dropdowns
+                categoryLogic CCategoryLogic = new categoryLogic();
+                ArrayList<categoryObj> CCategoryArray = CCategoryLogic.getAllCategories();
+                
+                request.getSession().setAttribute("category", CCategoryArray);
+                
+                response.sendRedirect("ProductUpdateForm.jsp");
+            }            
         }
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
