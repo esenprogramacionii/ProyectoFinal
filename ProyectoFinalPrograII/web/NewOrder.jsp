@@ -1,3 +1,5 @@
+<%@page import="Inventory.prografinal.objects.ProvObj"%>
+<%@page import="Inventory.prografinal.objects.ProvObj"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="Inventory.prografinal.objects.BStoreObj"%>
 <%@page import="java.util.ArrayList"%>
@@ -26,6 +28,12 @@
         ArrayList<BStoreObj> BArray = 
                 (ArrayList<BStoreObj>)request.getSession().getAttribute("bystore");
         Iterator<BStoreObj> itArray = BArray.iterator();
+        
+        ArrayList<ProvObj> PrArray = 
+                (ArrayList<ProvObj>)request.getSession().getAttribute("supplier");
+        Iterator<ProvObj> PArray = PrArray.iterator();
+        
+        
     %>
         
     <body>
@@ -38,9 +46,28 @@
             <br><br>
             
             <label>Supplier:</label><br>
-            <input type="number" id="supplier" name="supplier" />
+           <select id="supplier" name="supplier">
+                <option id="supplier0" name="supplier0" value="0"></option>                
+                <%
+                    if(PArray!=null)
+                    {
+                        ProvObj PTemp;
+                        while(PArray.hasNext())
+                        {
+                            PTemp = PArray.next();
+                %>
+                            <option id="supplier<%= PTemp.getId()%>" 
+                                    name="supplier<%= PTemp.getId() %>" 
+                                    value="<%= PTemp.getId() %>">
+                                
+                                <%= PTemp.getId()%> - <%= PTemp.getName()%>
+                            </option>
+                <%
+                        }
+                    }
+                %>
+            </select>
             <br><br>
-            
             <label>Date:</label><br>
             <input type="text" id="date" name="date" value ="<%=Adate%>" readonly/>
             <br><br>
@@ -49,7 +76,6 @@
             <input type="hidden" id="formid" name="formid" value="1" />
         </form>
             
-       </table>
         
         <h2>Availability of products by Store</h2>
         <table>

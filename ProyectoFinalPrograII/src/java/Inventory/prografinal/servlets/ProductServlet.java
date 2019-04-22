@@ -83,14 +83,17 @@ public class ProductServlet extends HttpServlet
             if(strFormId.equals("4"))
             {
                 //get parameters
-                String strId = request.getParameter("id");
+                String strId = request.getParameter("Id");
                 int iId = Integer.parseInt(strId);
                 
                 //access logic
                 ProductLogic CLogic = new ProductLogic();
                 ProductObj CProduct = CLogic.getProductById(iId);
                 
-               
+                categoryLogic CCategoryLogic = new categoryLogic();
+                ArrayList<categoryObj> CArray = CCategoryLogic.getAllCategories();
+                
+                request.getSession().setAttribute("category", CArray);
                 request.getSession().setAttribute("product", CProduct);
                 
                 response.sendRedirect("ProductUpdateForm.jsp");

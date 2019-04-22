@@ -3,7 +3,9 @@ package Inventory.prografinal.servlets;
 
 
 import Inventory.prografinal.logic.DetailLogic;
+import Inventory.prografinal.logic.storeLogic;
 import Inventory.prografinal.objects.DetailViewObj;
+import Inventory.prografinal.objects.storeObj;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -43,7 +45,12 @@ public class DetailServlet extends HttpServlet {
                 int iRows = CLogic.insertdetailRows(id, product,Quant,order);
                 System.out.println("insert client rows: " + iRows);
                 
+                storeLogic PLogic = new storeLogic();
+                ArrayList<storeObj> SArray = PLogic.getAllStores();
+                
+                
                 //send to frontend, puedo enviar más de un atributo en la session
+                request.getSession().setAttribute("store", SArray);
                 request.getSession().setAttribute("rows", new Integer(iRows) );
                 request.getSession().setAttribute("product", product );
                 request.getSession().setAttribute("stock", Quant );

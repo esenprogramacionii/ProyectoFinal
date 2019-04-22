@@ -2,6 +2,8 @@
 package Inventory.prografinal.servlets;
 
 
+import Inventory.prografinal.logic.ProductLogic;
+import Inventory.prografinal.logic.ProvLOGIC;
 import Inventory.prografinal.logic.StockLogic;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Inventory.prografinal.objects.BStoreObj;
 import Inventory.prografinal.objects.FinalObj;
+import Inventory.prografinal.objects.ProductView;
+import Inventory.prografinal.objects.ProvObj;
 
 
 @WebServlet(name = "StockServlet", urlPatterns = {"/StockServlet"})
@@ -81,7 +85,11 @@ public class StockServlet extends HttpServlet {
                 StockLogic BLogic = new StockLogic();
                 ArrayList<BStoreObj> BArray = BLogic.getBStore();
                 
+               ProvLOGIC ProvLogic = new ProvLOGIC();
+               ArrayList<ProvObj>  PrArray = ProvLogic.getAllProv();
+                
                 //send to frontend
+                request.getSession().setAttribute("supplier", PrArray);
                 request.getSession().setAttribute("bystore", BArray);
                 response.sendRedirect("NewOrder.jsp");
             }

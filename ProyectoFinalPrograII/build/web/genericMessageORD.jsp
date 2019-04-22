@@ -1,5 +1,8 @@
 
 
+<%@page import="java.util.Iterator"%>
+<%@page import="Inventory.prografinal.objects.ProductView"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,6 +16,11 @@
         int iRows = iRowsObj.intValue();
         
         Integer OrderId = (Integer)request.getSession().getAttribute("lastid");
+        
+        ArrayList<ProductView> PArray = 
+                (ArrayList<ProductView>)request.getSession().getAttribute("product");
+        Iterator<ProductView> itePArray = PArray.iterator();
+        
     %>
     <body >
         <h1>Primera parte de la orden completada: ORDEN <%= OrderId %></h1>
@@ -27,9 +35,29 @@
             <br><br>
             
             <label>What product do we need?:</label><br>
-            <input type="number" id="product" name="product" />
-            <br><br>
+            <select id="product" name="product">
+                <option id="product0" name="product0" value="0"></option>                
+                <%
+                    if(itePArray!=null)
+                    {
+                        ProductView PTemp;
+                        while(itePArray.hasNext())
+                        {
+                            PTemp = itePArray.next();
+                %>
+                            <option id="product<%= PTemp.getId()%>" 
+                                    name="product<%= PTemp.getId() %>" 
+                                    value="<%= PTemp.getId() %>">
+                                
+                                <%= PTemp.getId()%> - <%= PTemp.getName()%>
+                            </option>
+                <%
+                        }
+                    }
+                %>
+            </select>
             
+            <br><br>
             <label>Quantity:</label><br>
             <input type="number" id="quantity" name="quantity" />
             <br><br>
