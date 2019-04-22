@@ -15,7 +15,7 @@
         <br><br>
         <p><%= iRows %> rows where affected.</p>
         <br><br>
-        <a href="genericMessageORD.jsp">Order more product to the same supplier</a>
+        <a href="OrderServlet?formid=2">Order more product to the same supplier</a>
         <br><br>
         <a href="index.html">Back Home</a>
     </body>

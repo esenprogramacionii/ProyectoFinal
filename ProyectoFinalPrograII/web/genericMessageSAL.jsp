@@ -1,4 +1,5 @@
 
+<%@page import="Inventory.prografinal.objects.ProductView"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="Inventory.prografinal.objects.ProductObj"%>
 <%@page import="java.util.ArrayList"%>
@@ -21,6 +22,12 @@
          Integer iRowsObj = (Integer)request.getSession().getAttribute("rows");
         int iRows = iRowsObj.intValue();
         Integer SalesId = (Integer)request.getSession().getAttribute("lastsale");
+        
+
+        ArrayList<ProductView> PArray = 
+                (ArrayList<ProductView>)request.getSession().getAttribute("product");
+        Iterator<ProductView> itePArray = PArray.iterator();
+
     %>
     <body>
         <h1>Generic Message</h1>
@@ -32,9 +39,28 @@
       <form id="sform" name="sform" action="SalesDetailServlet" method="get">
             
             <label>What product do you want to buy?:</label><br>
-            <input type="text" id="product" name="product" />
+             <select id="product" name="product">
+                <option id="product0" name="product0" value="0"></option>                
+                <%
+                    if(itePArray!=null)
+                    {
+                        ProductView PTemp;
+                        while(itePArray.hasNext())
+                        {
+                            PTemp = itePArray.next();
+                %>
+                            <option id="product<%= PTemp.getId()%>" 
+                                    name="product<%= PTemp.getId() %>" 
+                                    value="<%= PTemp.getId() %>">
+                                
+                                <%= PTemp.getId()%> - <%= PTemp.getName()%>
+                            </option>
+                <%
+                        }
+                    }
+                %>
+            </select>
             <br><br>
-            
             <label>Quantity:</label><br>
             <input type="number" id="quantity" name="quantity" />
             <br><br>
