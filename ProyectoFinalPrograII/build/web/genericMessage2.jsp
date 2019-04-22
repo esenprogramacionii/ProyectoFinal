@@ -42,7 +42,7 @@
             <input type="number" id="store" name="store" />
             <br><br>
             
-            <input type="submit" id="mysubmit" name="mysubmit" value="Create"/>
+            <input type="submit" id="mysubmit" name="mysubmit" value="Create" onclick="return confirm('Are you sure this store?')"/>
             <input type="hidden" id="formid" name="formid" value="3" />
             <input type="hidden" id="transaction" name="transaction" value="0" />
         </form>
