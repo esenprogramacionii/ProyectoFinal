@@ -16,8 +16,10 @@
         ProductObj CProduct = 
                 (ProductObj)request.getSession().getAttribute("product");
         
-        categoryObj CCategory =
-                (categoryObj)request.getSession().getAttribute("category");
+        ArrayList<categoryObj> CCategoryArray = 
+                (ArrayList<categoryObj>)request.getSession().getAttribute("category");
+        Iterator<categoryObj> iteCategoryArray = CCategoryArray.iterator();
+       
     %>
         
     
@@ -50,9 +52,28 @@
             <br><br>
             
             <label>Category:</label><br>
-            <input id="category" name="category" value="<%= CProduct.getCategory() %> ">
-             
-                
+            
+            <select id="category" name="category">
+                <option id="category0" name="category0" value="0"></option>                
+                <%
+                    if(iteCategoryArray!=null)
+                    {
+                        categoryObj CCategoryTemp;
+                        while(iteCategoryArray.hasNext())
+                        {
+                            CCategoryTemp = iteCategoryArray.next();
+                %>
+                            <option id="category<%= CCategoryTemp.getId()%>" 
+                                    name="category<%= CCategoryTemp.getId() %>" 
+                                    value="<%= CCategoryTemp.getId() %>">
+                                
+                                <%= CCategoryTemp.getId()%> - <%= CCategoryTemp.getName()%>
+                            </option>
+                <%
+                        }
+                    }
+                %>
+            </select>
                 
             
                 

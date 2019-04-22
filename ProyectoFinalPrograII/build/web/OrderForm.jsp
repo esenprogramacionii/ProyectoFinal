@@ -9,7 +9,6 @@
               content="text/html; charset=UTF-8">
         <title>Generated Orders</title>
         <link href="Styles/tableStyles.css" rel="stylesheet" type="text/css"/>
-        
     </head>
     <%
         ArrayList<OrderObj> CArray = 

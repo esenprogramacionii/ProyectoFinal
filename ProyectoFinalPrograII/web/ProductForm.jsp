@@ -8,6 +8,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="Styles/tableStyles.css" rel="stylesheet" type="text/css"/>
+        
         <title>Product Form</title>
     </head>
     <%
@@ -47,7 +48,7 @@
                     <td><%= CTemp.getYear() %></td>
                     <td>$<%= CTemp.getPrice() %></td>
                     <td>
-                        <a href="ProductServlet?formid=4&id=<%= CTemp.getId() %>">
+                        <a href="ProductServlet?formid=4&id<%= CTemp.getId() %>">
                             update
                         </a>
                     </td>

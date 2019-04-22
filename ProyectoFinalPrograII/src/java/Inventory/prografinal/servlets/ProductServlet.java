@@ -90,8 +90,9 @@ public class ProductServlet extends HttpServlet
                 ProductLogic CLogic = new ProductLogic();
                 ProductObj CProduct = CLogic.getProductById(iId);
                 
-                //send to frontend
+               
                 request.getSession().setAttribute("product", CProduct);
+                
                 response.sendRedirect("ProductUpdateForm.jsp");
             }            
             
