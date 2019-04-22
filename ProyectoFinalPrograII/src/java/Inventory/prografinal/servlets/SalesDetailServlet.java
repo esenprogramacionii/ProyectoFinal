@@ -2,6 +2,7 @@
 package Inventory.prografinal.servlets;
 
 
+import Inventory.prografinal.logic.ProvLOGIC;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -10,6 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Inventory.prografinal.logic.SDetailLogic;
+import Inventory.prografinal.logic.storeLogic;
+import Inventory.prografinal.objects.ProvObj;
+import Inventory.prografinal.objects.storeObj;
+import java.util.ArrayList;
 
 @WebServlet(name = "SalesDetailServlet", urlPatterns = {"/SalesDetailServlet"})
 public class SalesDetailServlet extends HttpServlet {
@@ -38,9 +43,14 @@ public class SalesDetailServlet extends HttpServlet {
                 int iRows = CLogic.insertSalesDRows(Sproduct,sale,SQ);
                 System.out.println("insert client rows: " + iRows);
                 
+                storeLogic PLogic = new storeLogic();
+                ArrayList<storeObj> SArray = PLogic.getAllStores();
+                
+
                 //send to frontend
                 request.getSession().setAttribute("rows", new Integer(iRows) );
                 request.getSession().setAttribute("product", Sproduct );
+                 request.getSession().setAttribute("Store", SArray);
                 request.getSession().setAttribute("quantity", SQ );
 
                 
