@@ -35,7 +35,7 @@
             <input type="text" id="date" name="date" value="<%=Adate%>" readonly/>
             <br><br>
             
-            <input type="submit" id="mysubmit" name="mysubmit" value="Create"/>
+            <input type="submit" id="mysubmit" name="mysubmit" value="Create" onclick="return confirm('Are you sure this is the right information?')"/>
             <input type="hidden" id="formid" name="formid" value="1" />
         </form>
         

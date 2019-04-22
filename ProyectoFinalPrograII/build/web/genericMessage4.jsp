@@ -35,7 +35,7 @@
             <input type="number" id="Sstore" name="Sstore" />
             <br><br>
             
-            <input type="submit" id="mysubmit" name="mysubmit" value="Create"/>
+            <input type="submit" id="mysubmit" name="mysubmit" value="Create" onclick="return confirm('Are you sure this is the right information?')"/>
             <input type="hidden" id="formid" name="formid" value="2" />
             <input type="hidden" id="salesd" name="salesd" value="0" />
         </form>
