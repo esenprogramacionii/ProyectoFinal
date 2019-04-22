@@ -1,10 +1,11 @@
+
 $(document).ready(function(){
     $("#myform").validate({
         rules:{
-                name: {
-                required:true
-            }
-            
+                supplier: {
+                required:true,
+                min:1
+            } 
         }
     });
 });

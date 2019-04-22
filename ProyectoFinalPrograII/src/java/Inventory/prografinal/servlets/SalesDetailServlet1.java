@@ -1,7 +1,5 @@
 package Inventory.prografinal.servlets;
 
-
-import Inventory.prografinal.logic.ProductLogic;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -10,59 +8,56 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import Inventory.prografinal.logic.SalesLogic;
-import Inventory.prografinal.objects.ProductView;
-import Inventory.prografinal.objects.SalesObj;
+import Inventory.prografinal.logic.SalesDetailLogic;
+import Inventory.prografinal.objects.SalesDetailObj;
 
-@WebServlet(name = "SalesServlet", urlPatterns = {"/SalesServlet"})
-public class SalesServlet extends HttpServlet 
 
+@WebServlet(name = "SalesDetailServlet1", urlPatterns = {"/SalesDetailServlet1"})
+public class SalesDetailServlet1 extends HttpServlet 
 {
-    protected void processRequest(HttpServletRequest request, 
-            HttpServletResponse response)
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
     {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) 
         {
-            /* your code */
+             /* your code */
             String strFormId = request.getParameter("formid");
             
             if(strFormId.equals("1"))
             {
                 //get parameters
-                String strFirstname = request.getParameter("firstname");
-                String strLastname = request.getParameter("lastname");
-                String strDate = request.getParameter("date");
+                String strProduct = request.getParameter("product");
+                int iProduct = Integer.parseInt(strProduct);
+                String strSales = request.getParameter("sales");
+                int iSales = Integer.parseInt(strSales);
+                String strQuantity = request.getParameter("quantity");
+                int iQuantity = Integer.parseInt(strQuantity);
                 
                 //access logic
-                SalesLogic CLogic = new SalesLogic();
-                int iRows = CLogic.insertSalesRows(strFirstname, strLastname, strDate);
-                int lastid = CLogic.getlastid();
-                ProductLogic PLogic = new ProductLogic();
-                ArrayList<ProductView> PArray = PLogic.getAllProducts();
-                
-                System.out.println(lastid);
-                
+                SalesDetailLogic CLogic = new SalesDetailLogic();
+                int iRows = CLogic.insertSalesDetailRows(iProduct, iSales, iQuantity);
+                System.out.println("insert salesdetail rows: " + iRows);
                 
                 //send to frontend
                 request.getSession().setAttribute("rows", new Integer(iRows) );
-                request.getSession().setAttribute("lastsale", lastid );
-                request.getSession().setAttribute("product", PArray);
-                response.sendRedirect("genericMessageSAL.jsp");
+                response.sendRedirect("genericMessage.jsp");
             }
             
-             if(strFormId.equals("2"))
+            if(strFormId.equals("2"))
             {
                 //access logic
-                SalesLogic CLogic = new SalesLogic();
-                ArrayList<SalesObj> CArray = CLogic.getAllSales();
+                SalesDetailLogic CLogic = new SalesDetailLogic();
+                ArrayList<SalesDetailObj> CArray = CLogic.getAllSalesDetail();
+                
+                //envair un correo
                 
                 //send to frontend
-                request.getSession().setAttribute("sales", CArray);
-                response.sendRedirect("salesForm.jsp");
+                request.getSession().setAttribute("salesdetails", CArray);
+                response.sendRedirect("salesdetailForm.jsp");
             }
-             
+            
             if(strFormId.equals("3"))
             {
                 //get parameters
@@ -70,8 +65,8 @@ public class SalesServlet extends HttpServlet
                 int iId = Integer.parseInt(strId);
                 
                 //access logic
-                SalesLogic CLogic = new SalesLogic();
-                int iRows = CLogic.deleteSalesRows(iId);
+                SalesDetailLogic CLogic = new SalesDetailLogic();
+                int iRows = CLogic.deleteSalesDetailRows(iId);
                 
                 //send to frontend
                 request.getSession().setAttribute("rows", iRows);
@@ -85,58 +80,38 @@ public class SalesServlet extends HttpServlet
                 int iId = Integer.parseInt(strId);
                 
                 //access logic
-                SalesLogic CLogic = new SalesLogic();
-                SalesObj CClient = CLogic.getSalesById(iId);
+                SalesDetailLogic CLogic = new SalesDetailLogic();
+                SalesDetailObj CSalesDetail = CLogic.getSalesDetailById(iId);
                 
                 //send to frontend
-                request.getSession().setAttribute("sales", CClient);
-                response.sendRedirect("salesUpdateForm.jsp");
-            } 
+                request.getSession().setAttribute("salesdetail", CSalesDetail);
+                response.sendRedirect("salesdetailUpdateForm.jsp");
+            }   
             
             if(strFormId.equals("5"))
             {
                 //get parameters
                 String strId = request.getParameter("id");
-                String strFirstname = request.getParameter("firstname");
-                String strLastname = request.getParameter("lastname");
-                String strDate = request.getParameter("date");
+                String strProduct = request.getParameter("product");
+                String strSales = request.getParameter("sales");
                 int iId = Integer.parseInt(strId);
-                
+                int iProduct = Integer.parseInt(strProduct);
+                int iSales = Integer.parseInt(strSales);
+                String strQuantity = request.getParameter("quantity");
+                int iQuantity = Integer.parseInt(strQuantity);
                 
                 //access logic
-                SalesLogic CLogic = new SalesLogic();
-                int iRows = CLogic.updateSalesRows(iId,strFirstname, strLastname, strDate);
-                System.out.println("update sales rows: " + iRows);
+                SalesDetailLogic CLogic = new SalesDetailLogic();
+                int iRows = CLogic.updateClientRows(iId, iProduct, iSales, iQuantity);
+                System.out.println("update salesdetail rows: " + iRows);
                 
                 //send to frontend
                 request.getSession().setAttribute("rows", new Integer(iRows) );
                 response.sendRedirect("genericMessage.jsp");
                 
             }
-            
         }
     }
-    
-
-    
-    
-    /*
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            /*out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet SalesServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet SalesServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }*/
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -178,3 +153,4 @@ public class SalesServlet extends HttpServlet
     }// </editor-fold>
 
 }
+

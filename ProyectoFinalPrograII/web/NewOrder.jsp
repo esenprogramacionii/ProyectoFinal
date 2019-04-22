@@ -14,6 +14,9 @@
         <meta name="viewport" 
               content="width=device-width, initial-scale=1.0">
         <link href="styles/tableStyles.css" rel="stylesheet" type="text/css"/>
+        <script src="Scripts/jquery-3.3.1.js" type="text/javascript"></script>
+        <script src="Scripts/jquery.validate.js" type="text/javascript"></script>
+        <script src="Scripts/newOrderScript.js" type="text/javascript"></script>
     </head>
      <%
          DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
@@ -42,7 +45,7 @@
             <input type="text" id="date" name="date" value ="<%=Adate%>" readonly/>
             <br><br>
             
-            <input type="submit" id="mysubmit" name="mysubmit" value="Create"/>
+            <input type="submit" id="mysubmit" name="mysubmit" value="Create" onclick="return confirm('Are you sure this is the right supplier for the order?')"/>
             <input type="hidden" id="formid" name="formid" value="1" />
         </form>
             

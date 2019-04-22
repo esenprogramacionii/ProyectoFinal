@@ -1,5 +1,5 @@
 <%@page import="java.util.Iterator"%>
-<%@page import="Inventory.prografinal.objects.SalesObj"%>
+<%@page import="Inventory.prografinal.objects.SalesDetailObj"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,47 +7,45 @@
     <head>
         <meta http-equiv="Content-Type" 
               content="text/html; charset=UTF-8">
-        <title>Sales</title>
+        <title>Client</title>
         <link href="Styles/tableStyles.css" rel="stylesheet" type="text/css"/>
         
     </head>
     <%
-        ArrayList<SalesObj> CArray = 
-                (ArrayList<SalesObj>)request.getSession().getAttribute("sales");
-        Iterator<SalesObj> iteArray = CArray.iterator();
+        ArrayList<SalesDetailObj> CArray = 
+                (ArrayList<SalesDetailObj>)request.getSession().getAttribute("salesdetails");
+        Iterator<SalesDetailObj> iteArray = CArray.iterator();
     %>
     <body>
-        <h1>Sales</h1>
+        <h1>Sales Details</h1>
         <br>
-        <a href="salesNew.jsp">New Sales</a>
-        <br><br>
         <table>
         <tr>
             <th>Id</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Date the sale was registered</th>
+            <th>Product</th>
+            <th>Sales</th>
+            <th>Quantity</th>
         </tr>
         <%
             if(iteArray!=null)
             {
-                SalesObj CTemp;
+                SalesDetailObj CTemp;
                 while(iteArray.hasNext())
                 {
                     CTemp = iteArray.next();
         %>
                 <tr>
                     <td><%= CTemp.getId() %></td>
-                    <td><%= CTemp.getFirstname() %></td>
-                    <td><%= CTemp.getLastname() %></td>
-                    <td><%= CTemp.getDate() %></td>
+                    <td><%= CTemp.getProduct() %></td>
+                    <td><%= CTemp.getSales() %></td>
+                    <td><%= CTemp.getQuantity() %></td>
                     <td>
-                        <a href="SalesServlet?formid=4&id=<%= CTemp.getId() %>">
+                        <a href="SalesDetailServlet1?formid=4&id=<%= CTemp.getId() %>">
                             update
                         </a>
                     </td>
                     <td>
-                        <a href="SalesServlet?formid=3&id=<%= CTemp.getId() %>">
+                        <a href="SalesDetailServlet1?formid=3&id=<%= CTemp.getId() %>">
                             delete
                         </a>
                     </td>
