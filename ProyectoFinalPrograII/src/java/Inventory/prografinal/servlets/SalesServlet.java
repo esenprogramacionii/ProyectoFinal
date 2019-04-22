@@ -1,6 +1,7 @@
 package Inventory.prografinal.servlets;
 
 
+import Inventory.prografinal.logic.ProductLogic;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Inventory.prografinal.logic.SalesLogic;
+import Inventory.prografinal.objects.ProductView;
 import Inventory.prografinal.objects.SalesObj;
 
 @WebServlet(name = "SalesServlet", urlPatterns = {"/SalesServlet"})
@@ -37,6 +39,8 @@ public class SalesServlet extends HttpServlet
                 SalesLogic CLogic = new SalesLogic();
                 int iRows = CLogic.insertSalesRows(strFirstname, strLastname, strDate);
                 int lastid = CLogic.getlastid();
+                ProductLogic PLogic = new ProductLogic();
+                ArrayList<ProductView> PArray = PLogic.getAllProducts();
                 
                 System.out.println(lastid);
                 
@@ -44,6 +48,7 @@ public class SalesServlet extends HttpServlet
                 //send to frontend
                 request.getSession().setAttribute("rows", new Integer(iRows) );
                 request.getSession().setAttribute("lastsale", lastid );
+                request.getSession().setAttribute("product", PArray);
                 response.sendRedirect("genericMessageSAL.jsp");
             }
             

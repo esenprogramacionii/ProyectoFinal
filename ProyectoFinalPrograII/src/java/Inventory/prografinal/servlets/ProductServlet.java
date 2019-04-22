@@ -130,7 +130,8 @@ public class ProductServlet extends HttpServlet
                 request.getSession().setAttribute("category", CCategoryArray);
                 
                 response.sendRedirect("ProductNew.jsp");
-            }            
+            }  
+                  
         }
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
