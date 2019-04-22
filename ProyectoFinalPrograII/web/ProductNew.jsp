@@ -57,11 +57,11 @@
                         {
                             CCategoryTemp = iteCategoryArray.next();
                 %>
-                            <option id="category<%= CCategoryTemp.getId() %>" 
+                            <option id="category<%= CCategoryTemp.getId()%>" 
                                     name="category<%= CCategoryTemp.getId() %>" 
                                     value="<%= CCategoryTemp.getId() %>">
                                 
-                              <%= CCategoryTemp.getId()%> - <%= CCategoryTemp.getName() %>
+                                <%= CCategoryTemp.getId()%> - <%= CCategoryTemp.getName()%>
                             </option>
                 <%
                         }
