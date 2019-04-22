@@ -41,12 +41,30 @@
     position: absolute; 
     letter-spacing: 5px;
     text-align: center;
+    border: 1px solid rgba(0,0,0,5);
+    background: rgba(0,0,0,.7);
 }
 .details h1{
     font-size: 35px;
     margin-bottom: 20px;
+    color: threedlightshadow;
+    font-weight: 200;
 }
 .details p{
     font-size: 20px;
     margin-bottom: 20px;
+    color: threedlightshadow;
+    font-weight: 100;
+}
+
+.details table{
+    border-collapse: collapse;
+    width: 100%;
+    color: threedlightshadow;
+}
+.details td, th {
+  border: 1px solid rgba(0,0,0,1);
+  text-align: center;
+  padding: 8px;
+  color: threedlightshadow;
 }
