@@ -1,3 +1,7 @@
+<%@page import="Inventory.prografinal.objects.storeObj"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="Inventory.prografinal.objects.ProvObj"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +16,10 @@
         
         Integer Prod = (Integer)request.getSession().getAttribute("product");
         Integer Quantity = (Integer)request.getSession().getAttribute("quantity");
+        
+        ArrayList<storeObj> SArray = 
+                (ArrayList<storeObj>)request.getSession().getAttribute("Store");
+        Iterator<storeObj> iteSArray = SArray.iterator();
 
     %>
    <body>
@@ -32,9 +40,28 @@
             <br><br>
             
             <label>Store where the sale was done:</label><br>
-            <input type="number" id="Sstore" name="Sstore" />
+            <select id="Sstore" name="Sstore">
+                <option id="store0" name="store0" value="0"></option>                
+                <%
+                    if(iteSArray!=null)
+                    {
+                        storeObj PTemp;
+                        while(iteSArray.hasNext())
+                        {
+                            PTemp = iteSArray.next();
+                %>
+                            <option id="supplier<%= PTemp.getId()%>" 
+                                    name="supplier<%= PTemp.getId() %>" 
+                                    value="<%= PTemp.getId() %>">
+                                
+                                <%= PTemp.getId()%> - <%= PTemp.getName()%>
+                            </option>
+                <%
+                        }
+                    }
+                %>
+            </select>
             <br><br>
-            
             <input type="submit" id="mysubmit" name="mysubmit" value="Create" onclick="return confirm('Are you sure this is the right information?')"/>
             <input type="hidden" id="formid" name="formid" value="2" />
             <input type="hidden" id="salesd" name="salesd" value="0" />

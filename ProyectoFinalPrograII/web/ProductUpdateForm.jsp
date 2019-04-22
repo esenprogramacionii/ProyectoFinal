@@ -16,9 +16,9 @@
         ProductObj CProduct = 
                 (ProductObj)request.getSession().getAttribute("product");
         
-        ArrayList<categoryObj> CCategoryArray = 
+        ArrayList<categoryObj> CArray = 
                 (ArrayList<categoryObj>)request.getSession().getAttribute("category");
-        Iterator<categoryObj> iteCategoryArray = CCategoryArray.iterator();
+        Iterator<categoryObj> iteCategoryArray = CArray.iterator();
        
     %>
         

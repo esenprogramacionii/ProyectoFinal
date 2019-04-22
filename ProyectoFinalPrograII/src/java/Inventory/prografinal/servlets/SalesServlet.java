@@ -39,6 +39,7 @@ public class SalesServlet extends HttpServlet
                 SalesLogic CLogic = new SalesLogic();
                 int iRows = CLogic.insertSalesRows(strFirstname, strLastname, strDate);
                 int lastid = CLogic.getlastid();
+                
                 ProductLogic PLogic = new ProductLogic();
                 ArrayList<ProductView> PArray = PLogic.getAllProducts();
                 

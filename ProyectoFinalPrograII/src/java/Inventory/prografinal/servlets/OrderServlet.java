@@ -3,7 +3,13 @@ package Inventory.prografinal.servlets;
 
 
 import Inventory.prografinal.logic.OrderLogic;
+import Inventory.prografinal.logic.ProductLogic;
+import Inventory.prografinal.logic.ProvLOGIC;
+import Inventory.prografinal.logic.categoryLogic;
 import Inventory.prografinal.objects.OrderObj;
+import Inventory.prografinal.objects.ProductView;
+import Inventory.prografinal.objects.ProvObj;
+import Inventory.prografinal.objects.categoryObj;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -41,10 +47,13 @@ public class OrderServlet extends HttpServlet {
                 int iRows = CLogic.insertOrderRows(id, supplier, strDate); 
                 int lastid = CLogic.getlastid();
                 
+               ProductLogic PLogic = new ProductLogic();
+               ArrayList<ProductView> PArray = PLogic.getAllProducts();
+                
                 System.out.println(lastid);
                 
-                
                 //send to frontend
+                request.getSession().setAttribute("product", PArray);
                 request.getSession().setAttribute("rows", new Integer(iRows) );
                 request.getSession().setAttribute("lastid", lastid ); //Aquí es donde quiero mandar la order id asociada para llenar la otra tabla
                 response.sendRedirect("genericMessageORD.jsp");
@@ -74,6 +83,25 @@ public class OrderServlet extends HttpServlet {
                 //send to frontend
                 request.getSession().setAttribute("rows", iRows);
                 response.sendRedirect("genericMessage.jsp");
+            }
+             
+             if(strFormId.equals("4"))
+            {
+                //get parameters
+                String strId = request.getParameter("id");
+                int iId = Integer.parseInt(strId);
+                
+                //access logic
+                OrderLogic CLogic = new OrderLogic();
+                int iRows = CLogic.deleteOrderRows(iId);
+                
+                ProductLogic PLogic = new ProductLogic();
+               ArrayList<ProductView> PArray = PLogic.getAllProducts();
+                
+                //send to frontend
+                request.getSession().setAttribute("rows", iRows);
+                request.getSession().setAttribute("product", PArray);
+                response.sendRedirect("genericMessageORD.jsp");
             }
             
             

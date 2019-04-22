@@ -4,6 +4,9 @@
     Author     : balbi
 --%>
 
+<%@page import="java.util.Iterator"%>
+<%@page import="Inventory.prografinal.objects.storeObj"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,6 +22,10 @@
         
         Integer prod = (Integer)request.getSession().getAttribute("product");
         Integer stock = (Integer)request.getSession().getAttribute("stock");
+        
+        ArrayList<storeObj> SArray = 
+                (ArrayList<storeObj>)request.getSession().getAttribute("store");
+        Iterator<storeObj> iteSArray = SArray.iterator();
 
     %>
     <body>
@@ -39,9 +46,28 @@
             <br><br>
             
             <label>Store where the order should be delivered:</label><br>
-            <input type="number" id="store" name="store" />
+             <select id="store" name="store">
+                <option id="store0" name="store0" value="0"></option>                
+                <%
+                    if(iteSArray!=null)
+                    {
+                        storeObj PTemp;
+                        while(iteSArray.hasNext())
+                        {
+                            PTemp = iteSArray.next();
+                %>
+                            <option id="store<%= PTemp.getId()%>" 
+                                    name="store<%= PTemp.getId() %>" 
+                                    value="<%= PTemp.getId() %>">
+                                
+                                <%= PTemp.getId()%> - <%= PTemp.getName()%>
+                            </option>
+                <%
+                        }
+                    }
+                %>
+            </select>
             <br><br>
-            
             <input type="submit" id="mysubmit" name="mysubmit" value="Create" onclick="return confirm('Are you sure this store?')"/>
             <input type="hidden" id="formid" name="formid" value="3" />
             <input type="hidden" id="transaction" name="transaction" value="0" />
