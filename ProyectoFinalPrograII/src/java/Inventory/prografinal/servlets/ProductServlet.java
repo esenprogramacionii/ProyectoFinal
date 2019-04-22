@@ -90,8 +90,9 @@ public class ProductServlet extends HttpServlet
                 ProductLogic CLogic = new ProductLogic();
                 ProductObj CProduct = CLogic.getProductById(iId);
                 
-                //send to frontend
+               
                 request.getSession().setAttribute("product", CProduct);
+                
                 response.sendRedirect("ProductUpdateForm.jsp");
             }            
             
@@ -130,16 +131,6 @@ public class ProductServlet extends HttpServlet
                 request.getSession().setAttribute("category", CCategoryArray);
                 
                 response.sendRedirect("ProductNew.jsp");
-            }            
-             if(strFormId.equals("7"))
-            {
-                //load all dropdowns
-                categoryLogic CCategoryLogic = new categoryLogic();
-                ArrayList<categoryObj> CCategoryArray = CCategoryLogic.getAllCategories();
-                
-                request.getSession().setAttribute("category", CCategoryArray);
-                
-                response.sendRedirect("ProductUpdateForm.jsp");
             }            
         }
     }

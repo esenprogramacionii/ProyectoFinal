@@ -18,7 +18,7 @@ public class categoryLogic extends logic {
     
      public ArrayList<categoryObj> getAllCategories() 
     {
-        //select * from travelsys.client;
+      
         DatabaseX database = getDatabase();
         String strSql = "select * from mydb.category ";
         System.out.println(strSql);
