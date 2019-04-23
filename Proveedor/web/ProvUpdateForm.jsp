@@ -9,6 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="Scripts/jquery-3.3.1.js" type="text/javascript"></script>
+        <script src="Scripts/jquery.validate.js" type="text/javascript"></script>
+        <script src="Scripts/ProvFormScript.js" type="text/javascript"></script>
         <title>Actualizar Proveedores</title>
     </head>
      <%
