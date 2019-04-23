@@ -1,0 +1,123 @@
+table {
+  font-family: arial;
+  border-collapse: collapse;
+  width: 70%;
+  border: 1.5px solid #000000;
+   border-collapse:separate;
+    border:solid black 1px;
+    border-radius:12px;
+    -moz-border-radius:12px;
+    margin-left:auto; 
+    margin-right:auto; 
+  ;
+  
+}
+
+ th {
+  border: 1.5px solid #000000;
+  text-align: center;
+  padding: 8px;
+  font-size: 18px;
+  background-color: #CACCCE;
+  
+    }
+
+td {
+  border: 1.5px solid #000000;
+  text-align: center;
+  padding: 7px;
+  font-size: 15px;
+  background-color: #CACCCE;
+}
+
+
+
+tr:hover {background-color: #E6A3A2;}
+
+a{font-family: arial}
+
+input[type=text] {
+  width: 150px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  padding: 8px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  
+}
+
+input[type=text]:focus {
+  width: 60%;}
+
+input[type=number] {
+  width: 150px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  padding: 8px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  
+}
+input[type=number]:focus {
+  width: 60%;}
+
+input[type=submit] {
+  width: 100px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #9E9E9E;
+  padding: 6px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+input[type=submit]:hover {
+  background-color: #E29E9D;
+  color: black;
+}
+
+label{
+    font-size:larger
+}
+
+h1 {
+  font-family: arial;
+  text-align: center;
+  color: white;
+  left: 50%;
+  top: 50%;
+  background: rgba(0, 0, 0, 0.5)
+}
+
+p{
+    font-size:larger;
+}
+
+a:link, a:visited {
+  background-color: darkslategray;
+  color: white;
+  padding: 4px 15px;
+  text-align: center; 
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: #333;
+  color:white;
+}
+
+body {
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba(134,136,138, 0.5),
+        rgba(134,136,138,0.5)),
+        url("siete (3).jpg");
+}

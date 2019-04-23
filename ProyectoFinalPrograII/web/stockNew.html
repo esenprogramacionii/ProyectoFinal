@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>New Stock</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" 
+              content="width=device-width, initial-scale=1.0">
+        <link href="Styles/tableStyle1.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <h1>New Stock</h1>
+        <br><br>
+        
+        <form id="myform" name="myform" action="StockServlet" method="get">
+            <label>Product Id:</label><br>
+            <input type="number" id="productid" name="productid" />
+            <br><br>
+            
+            <label>Store Id:</label><br>
+            <input type="number" id="storeid" name="storeid" />
+            <br><br>
+            
+            <label>Stock:</label><br>
+            <input type="number" id="stock" name="stock" />
+            <br><br>
+            
+            <input type="submit" id="mysubmit" name="mysubmit" value="Create"/>
+            <input type="hidden" id="formid" name="formid" value="1" />
+        </form>
+        
+    </body>
+</html>

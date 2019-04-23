@@ -1,0 +1,58 @@
+.body{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    animation: animate 16s ease-in-out infinite;
+    background-size: cover;
+}
+.outer{
+    position: absolute;
+    left:0;
+    top: 0;
+    color: #fff;
+    width: 100%;
+    height: 100vh;
+   
+}
+@keyframes animate{
+    0%,100%{
+        background-image: url(IMG_9038.JPG);
+    }
+    25%{
+        background-image: url(IMG_9043.JPG);
+    }
+    50%{
+        background-image: url(IMG_9048.JPG);
+    }
+    75%{
+        background-image: url(dos.jpg);
+    }
+}
+.details{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute; 
+    letter-spacing: 5px;
+    text-align: center;
+}
+.details h1{
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+.details p{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.button1 {
+  background-color: #555555;
+  color: white; 
+  padding: 5px 20px;
+}
