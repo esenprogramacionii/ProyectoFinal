@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Nuevo proveedor</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script src="Scripts/jquery-3.3.1.js" type="text/javascript"></script>
+        <script src="Scripts/jquery.validate.js" type="text/javascript"></script>
+        <script src="Scripts/ProvFormScript.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <h1>Nuevo Proveedor</h1>
+        <br><br>
+        
+        <form id="myform" name="myform" action="ProvSERVLET" method="get" > 
+            <label>Nombre:</label><br>
+            <input type="text" id="name" name="name" />
+            <br><br>
+            
+            
+            <input type="submit" id="mysubmit" name="mysubmit" value="Create" />
+            <input type="hidden" id="formid" name="formid" value="1"/>
+            
+            <br><br>
+            <a href="Proveedores.jsp">Regresar</a>
+            
+            
+        </form>
+    </body>
+</html>

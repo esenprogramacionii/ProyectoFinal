@@ -1,0 +1,25 @@
+
+table {
+    margin: auto;
+    width: 50%;
+    max-width: 500px;
+    background: #F3F3F3;
+    padding: 30px;
+    border: 1px solid rgba(0,0,0,.2);
+    background: rgba(0,0,0,1);
+}
+
+th {
+  border: 1px;
+  text-align: center;
+  padding: 8px;
+  background: rgba(0,0,0,1);
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+b{
+    font-weight: 200;
+    font-size: ;
+}
